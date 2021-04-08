@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
+html {
+    height: 100%;
+}
+
+.homepage-image-container {
+    background: url('/media/homepage-image1.jpg') no-repeat center center fixed;
+    height: 100vh;
+    min-width: 100;
+}
+
+.navbar-brand {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+}
+
+.header-container {
+    padding-top: 56px;
+}
+
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
