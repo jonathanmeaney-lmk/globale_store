@@ -29,29 +29,74 @@
   <body>
     <header class="fixed-top">
       <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
-        <a class="navbar-brand" href="#">GlobAle</a>
+        <a class="navbar-brand ml-lg-3" href="#">Glob<span id="ale-brand">Ale</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-3 text-dark">
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#">All Beers</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-toggle="dropdown" aria-expanded="false">
+                Categories
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Lagers/Pilsner</a></li>
+                <li><a class="dropdown-item" href="#">Ales</a></li>
+                <li><a class="dropdown-item" href="#">Pale Ales</a></li>
+                <li><a class="dropdown-item" href="#">Stouts</a></li>
+                <li><a class="dropdown-item" href="#">Wheat Beer</a></li>
+                <li><a class="dropdown-item" href="#">Non-Alcoholic</a></li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCountries" role="button" data-toggle="dropdown" aria-expanded="false">
+              Country
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">United States</a></li>
+              <li><a class="dropdown-item" href="#">Belgium</a></li>
+              <li><a class="dropdown-item" href="#">Ireland</a></li>
+              <li><a class="dropdown-item" href="#">Spain</a></li>
+              <li><a class="dropdown-item" href="#">Japan</a></li>
+            </ul>
+          </ul>
+          <ul class="navbar-nav mt-2 mt-lg-0 mr-lg-4 text-dark">
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-circle nav-icons-lg"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Register</a></li>
+                <li><a class="dropdown-item" href="#">Log In</a></li>
+                <li><a class="dropdown-item" href="#">Log Out</a></li>
+              </ul>
+            </li>
+            <li class="nav-item mx-2">
+              <a href="" class="nav-link">
+                <i class="fas fa-shopping-cart nav-icons-lg"></i>
+              </a>
             </li>
           </ul>
+          
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <div class="input-group w-100">
+              <input class="form-control border border-black rounded-3" type="text" name="q" placeholder="Search">
+              <div class="input-group-append">
+                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                  <span class="icon">
+                    <i class="fas fa-search"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </nav>
+      
     </header>
 
     {% if messages %}

@@ -5,15 +5,20 @@ html {
 }
 
 .homepage-image-container {
-    background: url('/media/homepage-image1.jpg') no-repeat center center fixed;
+    background: url('/media/homepage-image1.jpg') no-repeat center center;
     height: 100vh;
     min-width: 100;
+    background-size: cover;
 }
 
 .navbar-brand {
     font-family: 'Jost', sans-serif;
     font-weight: 700;
     font-size: 2rem;
+}
+
+#ale-brand{
+    text-transform: uppercase;
 }
 
 /* from Bulma */
@@ -61,4 +66,8 @@ html {
 
 .border-black {
     border: 1px solid black !important;
+}
+
+.nav-icons-lg {
+    font-size: 1.5rem;
 }
