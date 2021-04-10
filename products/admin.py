@@ -2,6 +2,32 @@ from django.contrib import admin
 from .models import Product, Category, Country
 
 
-admin.site.register(Product)
-admin.site.register(Category)
-admin.site.register(Country)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = (
+        'sku',
+        'name',
+        'category',
+        'price',
+        'image',
+    )
+
+    ordering = ('sku',)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'name',
+    )
+
+
+class CountryAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'name',
+    )
+
+
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Country, CountryAdmin)
