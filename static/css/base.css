@@ -5,7 +5,7 @@ html {
 }
 
 .homepage-image-container {
-    background: url('/media/homepage-image1.jpg') no-repeat center center;
+    background: url('/media/homepage-image.jpg') no-repeat center center;
     height: 100vh;
     min-width: 100;
     background-size: cover;
@@ -36,7 +36,7 @@ html {
 }
 
 .header-container {
-    padding-top: 56px;
+    padding-top: 90px;
 }
 
 .shop-now-button {
@@ -70,4 +70,9 @@ html {
 
 .nav-icons-lg {
     font-size: 1.5rem;
+}
+
+.card-img-top {
+    height: 300px;
+    width: 300px;
 }

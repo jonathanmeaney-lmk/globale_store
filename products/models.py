@@ -42,12 +42,14 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     size = models.IntegerField()
     abv = models.DecimalField(max_digits=6, decimal_places=2)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    brewer = models.CharField(max_length=64, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
     def _generate_sku(self):
         """
-        Generate a random sku number that starts with gp
+        Generate a random sku number that starts with "gb"
+        Code to generate random 10-digit number came from here:
+        https://stackoverflow.com/questions/2673385/how-to-generate-random-number-with-the-specific-length-in-python
         """
         range_start = 10**9
         range_end = (10**10)-1
@@ -59,8 +61,11 @@ class Product(models.Model):
         """
         Override the original save method to set the sku number
         """
-        self.sku = self._generate_sku()
-        super().save(*args, **kwargs)
+        if not self.sku:
+            self.sku = self._generate_sku()
+            super().save(*args, **kwargs)
+        else:
+            super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
