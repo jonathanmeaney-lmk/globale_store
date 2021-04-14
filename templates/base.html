@@ -44,12 +44,12 @@
                 Categories
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Lagers/Pilsner</a></li>
-                <li><a class="dropdown-item" href="#">Ales</a></li>
-                <li><a class="dropdown-item" href="#">Pale Ales</a></li>
-                <li><a class="dropdown-item" href="#">Stouts</a></li>
-                <li><a class="dropdown-item" href="#">Wheat Beer</a></li>
-                <li><a class="dropdown-item" href="#">Non-Alcoholic</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=lagers">Lagers</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=ales">Ales</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=pale_ales">Pale Ales</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=stouts">Stouts</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=wheat_beer">Wheat Beer</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?category=non_alcholic">Non-Alcoholic</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -57,10 +57,11 @@
                 Countries
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">United States</a></li>
-                <li><a class="dropdown-item" href="#">Ireland</a></li>
-                <li><a class="dropdown-item" href="#">Belgium</a></li>
-                <li><a class="dropdown-item" href="#">Spain</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?country=united_states">United States</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?country=ireland">Ireland</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?country=belgium">Belgium</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?country=spain">Spain</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?country=japan">Japan</a></li>
               </ul>
             </li>
           </ul>
