@@ -78,8 +78,11 @@
               </ul>
             </li>
             <li class="nav-item mx-2">
-              <a href="{% url 'view_cart' %}" class="nav-link">
-                <i class="fas fa-shopping-cart nav-icons-lg"></i>
+              <a class="nav-link {% if product_count != 0 %}text-info font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
+                <i class="fas fa-shopping-cart nav-icons-lg">
+                </i>{% if product_count != 0 %}
+                {{ product_count }}{% endif %}
+            
               </a>
             </li>
           </ul>
