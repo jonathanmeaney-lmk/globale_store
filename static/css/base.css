@@ -76,3 +76,7 @@ html {
     height: 300px;
     width: 300px;
 }
+
+.product-description {
+    font-size: 12px;
+}

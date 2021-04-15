@@ -13,7 +13,7 @@
     <div class="container-fluid">
         
         <div class="row">
-            <div class="col-12 col-sm-4 offset-sm-2">
+            <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
                     {% if product.image %}
                         <a href="{{ product.image.url }}" target="_blank">
@@ -26,15 +26,34 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-12 col-sm-4">
+            <div class="col-12 col-sm-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
                     <h2 class="mb-2">{{ product.name }}</h2>
                     <hr>
                     <p class="font-weight-light font-italic mb-1">Brewer: <strong>{{ product.brewer }}</strong></p>
                     <p><i class="fas fa-globe-europe"></i> <span>{{ product.country.friendly_name }}</span></p>
                     <hr>
-                    <p class="mt-2 mb-1">{{ product.description }}</p>
+                    <p class="mt-2 mb-1 product-description">{{ product.description }}</p>
                     <hr>
+                    <form class="form" action="#" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="mt-1"><strong>Quantity:</strong></p>
+                                <div class="form-group w-100">
+                                    <div class="input-group">
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                        <input type="submit" class="btn btn-black rounded-0 text-uppercase d-inline ml-3 w-75" value="Add to Cart">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-4 border text-center col-lg-3 mx-lg-3">
                             <p class="mb-2"><strong>Price</strong></p>
