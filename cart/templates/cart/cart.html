@@ -9,30 +9,145 @@
         </div>
     </div>
     
-    <div class="container mb-2">
-        <div class="row">
+    <div class="container">
+        <div class="row mb-3">
             <div class="col">
                 <h2>Your Beer Cart</h2>
-                <hr>
             </div>
         </div>
-        <div class="row">
+        {% if cart_items %}
+        <div class="row d-none d-md-block">´
             <div class="col">
-                {% if cart_items %}
-                    <div class="table-responsive rounded">
-                        {{ cart_items }}
+                <div class="row mb-0">
+                    <div class="col-md-6">
+                        <p class="text-muted mb-0">Product Info:</p>
                     </div>
-                {% else %}
-                    <p class="lead mb-5">Your bag is empty.</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Shopping</span>
-                    </a>
-                {% endif %}
+                    <div class="col-md-2">
+                        <p class="text-muted mb-0">Price:</p>
+                    </div>
+                    <div class="col-md-2">
+        
+                    </div>
+                    <div class="col-md-2">
+                        <p class="text-muted mb-0">Subtotal:</p>
+                    </div>
+                </div>
             </div>
+        </div>
+        <hr class="mt-0">
+        <div class="row d-none d-md-block">
+            <div class="col">
+                {% for item in cart_items %}
+                <div class="row">
+                    <div class="col-12 col-md-3 col-lg-2">
+                        <img class="img-fluid cart-image rounded d-inline" src="{{ item.product.image.url }}">
+                    </div>
+                    <div class="col-md-3 col-lg-4">
+                        <h5>{{ item.product.name}}</h5>
+                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                        <p class="my-3">Quantity: {{ item.quantity }}</p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="my-0"><strong>${{ item.product.price }}</strong></p>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-2">
+                        <p class="my-0"><strong>${{ item.product_subtotal }}</strong></p>
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+                <div class="row">
+                    <div class="col">
+                        <div class="row justify-content-end">
+                            <div class="col-4">
+                                <h6>Cart Total:</h6>
+                                {% if delivery > 0 %}
+                                <h6>Delivery (10%):</h6>
+                                {% else %}
+                                <h5><strike>Delivery(10%)</strike>:</h5>
+                                {% endif %}
+                                <hr class="w-100">
+                                <h4>Grand Total:</h4>
+                            </div>
+                            <div class="col-2">
+                                <h6><strong>${{ total|floatformat:2 }}</strong></h6>
+                                {% if delivery > 0 %}
+                                <h6><strong>${{ delivery|floatformat:2 }}</strong></h6>
+                                {% else %}
+                                <h5><strong>${{ delivery|floatformat:2 }}</strong></h5>
+                                {% endif %}
+                                <hr class="w-100">
+                                <h4><strong>{{ grand_total|floatformat:2 }}</strong></h4>
+                            </div>
+                        </div>
+                        {% if delivery > 0 %}
+                        <div class="row justify-content-end">
+                            <div class="col-6 ml-2 mx-2">
+                                <div class="alert alert-warning free-delivery-warning text-center" role="alert">
+                                    Spend $50 or more to receive free delivery!
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="row justify-content-end mr-2 mb-3">
+                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                            <a href="" class="btn btn-black rounded-0 btn-lg">
+                                <span class="text-uppercase">Make Payment</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <span class="icon">
+                                    <i class="fab fa-cc-stripe"></i>
+                                </span>
+                                <span class="icon">
+                                    <i class="far fa-credit-card"></i>
+                                </span>
+                                <span class="icon">
+                                    <i class="fas fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-block d-md-none">
+            {% for item in cart_items %}
+            <div class="row">
+                <div class="col-6 text-center">
+                    <img class="img-fluid cart-image rounded d-inline" src="{{ item.product.image.url }}">
+                </div>
+                <div class="col-6">
+                    <h5>{{ item.product.name}}</h5>
+                    <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                    <p class="my-1">Quantity: {{ item.quantity }}</p>
+                    <p class="my-1">Price: ${{ item.product.price }}</p>
+                    <hr class="w-75 my-1 ml-0">
+                    <p class="my-0">Subtotal: ${{ item.product_subtotal }}</p>
+                </div>
+            
+            </div>
+            <hr>
+            {% endfor %}
         </div>
     </div>
+    {% else %}
+    <div class="container">
+        <p class="lead mb-5">There's nothing in your cart yet.</p>
+        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase">Keep Shopping</span>
+        </a>
+    </div>
+{% endif %}
 {% endblock %}
 

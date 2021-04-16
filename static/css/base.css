@@ -80,3 +80,12 @@ html {
 .product-description {
     font-size: 12px;
 }
+
+.cart-image {
+    height: 130px;
+    width: 130px;
+}
+
+.free-delivery-warning {
+    font-size: 14px
+}
