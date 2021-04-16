@@ -64,9 +64,9 @@
                             <div class="col-4">
                                 <h6>Cart Total:</h6>
                                 {% if delivery > 0 %}
-                                <h6>Delivery (10%):</h6>
+                                <h6>Delivery (15%):</h6>
                                 {% else %}
-                                <h5><strike>Delivery(10%)</strike>:</h5>
+                                <h6><strike>Delivery (15%)</strike>:</h6>
                                 {% endif %}
                                 <hr class="w-100">
                                 <h4>Grand Total:</h4>
@@ -76,7 +76,7 @@
                                 {% if delivery > 0 %}
                                 <h6><strong>${{ delivery|floatformat:2 }}</strong></h6>
                                 {% else %}
-                                <h5><strong>${{ delivery|floatformat:2 }}</strong></h5>
+                                <h6><strong>${{ delivery|floatformat:2 }}</strong></h6>
                                 {% endif %}
                                 <hr class="w-100">
                                 <h4><strong>{{ grand_total|floatformat:2 }}</strong></h4>
@@ -92,14 +92,14 @@
                         </div>
                         {% endif %}
                         <div class="row justify-content-end mr-2 mb-3">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            <a href="{% url 'products' %}" class="btn btn-outline-black mt-3 rounded-0 btn-lg">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <a href="" class="btn btn-black rounded-0 btn-lg">
-                                <span class="text-uppercase">Make Payment</span>
+                            <a href="" class="btn btn-black mt-3 rounded-0 btn-lg">
+                                <span class="text-uppercase">Go to Checkout</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>
                                 </span>
@@ -119,18 +119,64 @@
             </div>
         </div>
         <div class="row d-block d-md-none">
+            <div class="row">
+                <div class="col text-right mr-2">
+                    <h6>Cart Total: ${{ total|floatformat:2 }}</h6>
+                    {% if delivery > 0 %}
+                    <h6>Delivery (15%): ${{ delivery|floatformat:2 }}</h6>
+                    {% else %}
+                    <h6><strike>Delivery(10%)</strike>: ${{ delivery|floatformat:2 }}</h6>
+                    {% endif %}
+                    <h5>Grand Total: <strong>{{ grand_total|floatformat:2 }}</strong></h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-right mr-2">
+                    <a href="" class="btn btn-black mt-3 rounded-0">
+                        <span class="text-uppercase">Go to Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <span class="icon">
+                            <i class="fab fa-cc-stripe"></i>
+                        </span>
+                        <span class="icon">
+                            <i class="far fa-credit-card"></i>
+                        </span>
+                        <span class="icon">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+                    </a>
+                    <a href="{% url 'products' %}" class="btn btn-outline-black mt-1 rounded-0 btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+                </div>
+            </div>
+            {% if delivery > 0 %}
+            <div class="row justify-content-center">
+                <div class="col mx-1 mb-0">
+                    <div class="alert alert-warning free-delivery-warning text-center" role="alert">
+                        <span class="small">Spend $50 or more to receive free delivery!</span>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <hr>
+            <p class="text-muted mb-3 text-center">Order Summary:</p>
             {% for item in cart_items %}
             <div class="row">
                 <div class="col-6 text-center">
                     <img class="img-fluid cart-image rounded d-inline" src="{{ item.product.image.url }}">
                 </div>
                 <div class="col-6">
-                    <h5>{{ item.product.name}}</h5>
-                    <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                    <p class="my-1">Quantity: {{ item.quantity }}</p>
-                    <p class="my-1">Price: ${{ item.product.price }}</p>
+                    <h6>{{ item.product.name}}</h6>
+                    <p class="my-1">QTY: {{ item.quantity }}</p>
+                    <p class="my-1 text-muted small">Price: ${{ item.product.price }}</p>
                     <hr class="w-75 my-1 ml-0">
-                    <p class="my-0">Subtotal: ${{ item.product_subtotal }}</p>
+                    <p class="my-0"><strong>Subtotal: ${{ item.product_subtotal }}</strong></p>
                 </div>
             
             </div>
