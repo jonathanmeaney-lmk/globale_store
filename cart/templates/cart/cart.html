@@ -45,7 +45,7 @@
                     <div class="col-md-3 col-lg-4">
                         <h5>{{ item.product.name}}</h5>
                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                        <form class="form update-form" action="" method="POST">
+                        <form class="form update-form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
                             {% csrf_token %}
                             <div class="form-row">
                                 <div class="form-group">
@@ -111,7 +111,7 @@
                                 <h6><strong>${{ delivery|floatformat:2 }}</strong></h6>
                                 {% endif %}
                                 <hr class="w-100">
-                                <h4><strong>{{ grand_total|floatformat:2 }}</strong></h4>
+                                <h4><strong>${{ grand_total|floatformat:2 }}</strong></h4>
                             </div>
                         </div>
                         {% if delivery > 0 %}
@@ -236,7 +236,7 @@
 <script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
+        var form = $(this).closest('.update-form');
         form.submit();
     })
 
@@ -244,7 +244,7 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}`;
+        var url = `/cart/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
