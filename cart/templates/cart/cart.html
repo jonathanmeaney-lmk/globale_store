@@ -71,7 +71,7 @@
                                                     </span>
                                                 </button>
                                             </div>
-                                            <a class="btn btn-black btn-sm update-link"><small>Update</small></a>
+                                            <a class="btn btn-black btn-sm update-link"><small>UPDATE</small></a>
                                         </div>
                                     </div>
                                 </div>
@@ -204,9 +204,40 @@
                     <img class="img-fluid cart-image rounded d-inline" src="{{ item.product.image.url }}">
                 </div>
                 <div class="col-6">
-                    <h6>{{ item.product.name}}</h6>
-                    <p class="my-1">QTY: {{ item.quantity }}</p>
-                    <p class="my-1 text-muted small">Price: ${{ item.product.price }}</p>
+                    <h5>{{ item.product.name}}</h5 >
+                    <form class="form update-form mb-0" action="{% url 'adjust_cart' item.item_id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group mb-3 w-75">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-sm" data-item_id="{{ item.item_id }}"
+                                                id="decrement-qty_{{ item.item_id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-minus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control form-control-sm qty_input text-center" type="number" 
+                                            name="quantity" value="{{ item.quantity }}" min="1"
+                                            max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-sm" data-item_id="{{ item.item_id }}"
+                                                id="increment-qty_{{ item.item_id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-plus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <a class="btn btn-black btn-sm update-link mb-0 ml-2"><small>UPDATE</small></a>
+                                    <a class="remove-item btn btn-sm btn-danger ml-2" id="remove_{{ item.item_id }}"><i class="fas fa-trash-alt fa-sm"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="mt-0 text-muted small">Price: ${{ item.product.price }}</p>
                     <hr class="w-75 my-1 ml-0">
                     <p class="my-0"><strong>Subtotal: ${{ item.product_subtotal }}</strong></p>
                 </div>
