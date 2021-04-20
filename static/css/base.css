@@ -89,3 +89,10 @@ html {
 .free-delivery-warning {
     font-size: 14px
 }
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
