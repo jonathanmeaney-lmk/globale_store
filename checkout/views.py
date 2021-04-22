@@ -58,7 +58,7 @@ def checkout(request):
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(request, "There's nothing in your cart at the moment")
             return redirect(reverse('products'))
 
         current_cart = cart_contents(request)
@@ -96,8 +96,8 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
-    if 'bag' in request.session:
-        del request.session['bag']
+    if 'cart' in request.session:
+        del request.session['cart']
 
     template = 'checkout/checkout_success.html'
     context = {
