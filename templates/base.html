@@ -75,12 +75,18 @@
               <a class="nav-link" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-expanded="false">
                 <i class="fas fa-user-circle nav-icons-lg"></i>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Register</a></li>
-                <li><a class="dropdown-item" href="#">Log In</a></li>
-                <li><a class="dropdown-item" href="#">Log Out</a></li>
-              </ul>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% if request.user.is_authenticated %}
+                      {% if request.user.is_superuser %}
+                      <a href="" class="dropdown-item">Product Management</a>
+                      {% endif %}
+                      <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                  {% else %}
+                      <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                      <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                  {% endif %}
+                </ul>
             </li>
             <li class="nav-item mx-2">
               <a class="nav-link {% if product_count != 0 %}text-info font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
