@@ -1,0 +1,45 @@
+#profile-update-form .form-control {
+    color: black;
+    border: none;
+    border-radius: 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid #cfd7df;
+}
+
+.profile-form-input {
+    box-sizing: border-box;
+    height: 43px;
+    padding: 10px 12px;
+    border: 1px solid #e6ebf1;
+    border-radius: 0px;
+    background-color: white;
+    transition: box-shadow 150ms ease;
+}
+
+.fieldset-label {
+    font-size: 20px;
+}
+
+.profile-form-input::placeholder {
+    color: #aab7c4;
+}
+
+.profile-form-input:focus,
+.profile-form-input:active {
+  border-bottom: solid 1px rgb(97, 97, 97)
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-bottom: solid 1px rgb(14, 14, 14) !important
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
