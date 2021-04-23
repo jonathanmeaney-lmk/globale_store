@@ -1,7 +1,7 @@
 StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
-  height: 40px;
+  height: 43px;
   padding: 10px 12px;
   border: 1px solid #e6ebf1;
   border-radius: 0px;
@@ -11,7 +11,7 @@ StripeElement,
 
 .form-control:focus {
   box-shadow: none !important;
-  border-bottom: solid 1px rgb(235, 31, 31) !important
+  border-bottom: solid 1px rgb(14, 14, 14) !important
 }
 
 .StripeElement--focus,
@@ -20,9 +20,6 @@ StripeElement,
   border-bottom: solid 1px rgb(97, 97, 97)
 }
 
-.StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
-}
 
 .stripe-style-input::placeholder {
     color: #aab7c4;
@@ -39,6 +36,16 @@ StripeElement,
     padding-bottom: 10px;
     padding-top: 10px;
     border-bottom: 1px solid #cfd7df;
+}
+
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
 }
 
 #loading-overlay {
