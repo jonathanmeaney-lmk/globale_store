@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Product, Category, Country
+from .models import Product, Category, Country, ProductReview
+from django.contrib.auth.models import User
 
 
 def all_products(request):
@@ -47,9 +48,24 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    user = get_object_or_404(User, username=request.user)
+    reviews = product.reviews.all()
+
+    if request.method == 'POST' and request.user.is_authenticated:
+        rating = int(request.POST.get('rating', 3))
+        content = request.POST.get('content', '')
+
+        redirect_url = request.POST.get('redirect_url')
+
+        review = ProductReview.objects.create(product=product, user=user, content=content, rating=rating)
+
+        return redirect(redirect_url)
+
+    print(reviews)
 
     context = {
         'product': product,
+        'reviews': reviews
     }
 
     return render(request, 'products/product_detail.html', context)
