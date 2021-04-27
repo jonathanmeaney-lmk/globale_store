@@ -92,22 +92,27 @@
                     <div class="reviews-container mt-5">
                         <h4>Reviews</h4>
                         <hr class="mt-0">
-                        <div class="review-form">
-                            <form method="POST" action="{% url 'product_detail' product.id %}">
-                                {% csrf_token %}
-                                <select class="form-select" name="rating" id="review-rating" aria-label="select review" required>
-                                    <option selected disabled>Choose Rating</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                                <textarea class="form-control my-2" placeholder="Write review here..." name="content" rows="2"></textarea>
-                                <button type="submit" class="btn btn-black rounded-0 text-uppercase w-25 align-center">Submit</button>
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            </form>
-                        </div>
+                        {% if request.user.is_authenticated %}
+                            <div class="review-form">
+                                <form method="POST" action="{% url 'product_detail' product.id %}">
+                                    {% csrf_token %}
+                                    <select class="form-select" name="rating" id="review-rating" aria-label="select review" required>
+                                        <option selected disabled>Choose Rating</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    <textarea class="form-control my-2" placeholder="Write review here..." name="content" rows="2"></textarea>
+                                    <button type="submit" class="btn btn-black rounded-0 text-uppercase w-25 align-center">Submit</button>
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form>
+                            </div>
+                        {% else %}
+                            <p>Please <a href="{% url 'account_login' %}">Log In</a> or <a href="{% url 'account_signup' %}">Register</a> to leave a review.</p>
+                            <hr> 
+                        {% endif %}
                         {% if reviews %}
                             {% for review in reviews %}
                                 <div class="reviews rounded-3 mt-3">
