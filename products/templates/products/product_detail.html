@@ -33,6 +33,10 @@
                     <p><i class="fas fa-globe-europe"></i> <span>{{ product.country.friendly_name }}</span></p>
                     <hr>
                     <p class="mt-2 mb-1 product-description">{{ product.description }}</p>
+                    <small>
+                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                    </small>
                     <hr>
                     <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}
