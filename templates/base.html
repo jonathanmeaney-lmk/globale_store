@@ -35,10 +35,21 @@
     <header class="fixed-top">
       <nav class="navbar navbar-expand-lg navbar-dark p-3">
         <a class="navbar-brand ml-lg-3" href="{% url 'home' %}">Glob<span id="ale-brand">Ale</span></a>
+
+        <!-- Shopping Cart Appears next to Navbar toggle on sm-md screens -->
+        <li class="nav-item d-inline d-lg-none ml-auto">
+          <a class="nav-link {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
+            <i class="fas fa-shopping-cart nav-icons-lg">
+            </i>{% if product_count != 0 %}  
+            <small class="cart-number">{{ product_count }}</small>{% endif %}
+          </a>
+        </li>
+
+        <!-- Navbar Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
+        
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-3 text-dark">
             <li class="nav-item mx-lg-2">
@@ -74,7 +85,7 @@
           <ul class="navbar-nav mt-2 mt-lg-0 mr-lg-4 text-dark">
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-expanded="false">
-                <i class="fas fa-user-circle nav-icons-lg"></i>
+                <i class="fas fa-user-circle nav-icons-lg"></i><span> Profile</span>
               </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   {% if request.user.is_authenticated %}
@@ -89,12 +100,12 @@
                   {% endif %}
                 </ul>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2 d-none d-lg-inline">
               <a class="nav-link {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
-                <i class="fas fa-shopping-cart nav-icons-lg">
-                </i>{% if product_count != 0 %}  
-                <small id="cart-number">{{ product_count }}</small>{% endif %}
-            
+                <i class="fas fa-shopping-cart nav-icons-lg"></i>
+                {% if product_count != 0 %}
+                <small class="cart-number">{{ product_count }}</small>
+                {% endif %}
               </a>
             </li>
           </ul>
