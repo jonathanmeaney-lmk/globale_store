@@ -1,28 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@700&family=Noticia+Text:wght@700&family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&display=swap');
 
+
+/* ............................... General */ 
 
 html {
     height: 100%;
 }
 
-.homepage-image-container {
-    background: url('/media/homepage-image.jpg') no-repeat center center;
-    height: 100vh;
-    min-width: 100;
-    background-size: cover;
+.header-container {
+    padding-top: 102px;
 }
 
-.navbar-brand {
-    font-family: 'Miriam Libre', sans-serif;
-    font-weight: 900;
-    font-size: 2rem;
-}
-
-#ale-brand{
-    text-transform: uppercase;
-}
-
-/* from Bulma */
+/* font awesome icon styling from Bulma */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -31,35 +20,94 @@ html {
     width: 1.5rem;
 }
 
-.logo-font {
-    font-family: 'Miriam Libre', sans-serif;
-    font-weight: 500;
+/* .................................... Navbar */
+
+.navbar {
+    background-color: #133965;
+    box-shadow: 0px 4px 6px #5d5d5e;
 }
 
-.reviews {
-    background-color: rgb(235, 235, 235);
-    padding: 15px;
-    border-radius: 10px
+.navbar-brand {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
 }
 
-.header-container {
-    padding-top: 90px;
+#ale-brand {
+    text-transform: uppercase;
+    color: #fcb500
 }
+
+.text-warning {
+    color:#fcb500
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 300;
+    font-size: 1.25rem;
+    color: white
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 300;
+    color: #fcb500
+}
+
+.nav-icons-lg {
+    font-size: 1.5rem;
+}
+
+#cart-number {
+    font-family: 'Roboto', sans-serif;
+}
+
+.dropdown-item {
+    font-family: 'Antonio', sans-serif;
+}
+
+/* ...................................... Homepage */
+
+.homepage-image-container {
+    background: url('/media/homepage-image.jpg') no-repeat center center;
+    height: 100vh;
+    min-width: 100;
+    background-size: cover;
+}
+
+#homepage-slogan {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 600;
+    color: white;
+    text-shadow: 4px 4px 4px rgb(151, 151, 151)
+}
+
+
+/* ............................... Buttons  */
 
 .shop-now-button {
-    background: black;
+    background: #133965;
     color: white;
     min-width: 260px;
+    font-family: 'Antonio', sans-serif;
+    box-shadow: 4px 4px 4px #5d5d5e;
 }
+
+.search-btn,
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background-color: #fcb500;
+    color: #133965
+}
+
 
 .btn-black {
     background: black;
     color: white;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
@@ -75,9 +123,17 @@ html {
     border: 1px solid black !important;
 }
 
-.nav-icons-lg {
-    font-size: 1.5rem;
+
+
+.reviews {
+    background-color: rgb(235, 235, 235);
+    padding: 15px;
+    border-radius: 10px
 }
+
+
+
+
 
 .card-img-top {
     height: 300px;

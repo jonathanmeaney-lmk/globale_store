@@ -64,8 +64,6 @@ def product_detail(request, product_id):
 
         return redirect(redirect_url)
 
-    print(reviews)
-
     context = {
         'product': product,
         'reviews': reviews

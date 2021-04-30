@@ -33,7 +33,7 @@
   </head>
   <body>
     <header class="fixed-top">
-      <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
+      <nav class="navbar navbar-expand-lg navbar-dark p-3">
         <a class="navbar-brand ml-lg-3" href="{% url 'home' %}">Glob<span id="ale-brand">Ale</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
       
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-3 text-dark">
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-lg-2">
               <a class="nav-link" href="{% url 'products' %}">All Beers</a>
             </li>
             <li class="nav-item dropdown">
@@ -67,6 +67,7 @@
                 <li><a class="dropdown-item" href="{% url 'products' %}?country=belgium">Belgium</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?country=spain">Spain</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?country=japan">Japan</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}?country=colombia">Colombia</a></li>
               </ul>
             </li>
           </ul>
@@ -89,10 +90,10 @@
                 </ul>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link {% if product_count != 0 %}text-info font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
+              <a class="nav-link {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
                 <i class="fas fa-shopping-cart nav-icons-lg">
-                </i>{% if product_count != 0 %}
-                {{ product_count }}{% endif %}
+                </i>{% if product_count != 0 %}  
+                <small id="cart-number">{{ product_count }}</small>{% endif %}
             
               </a>
             </li>
@@ -100,9 +101,9 @@
           
           <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'products' %}">
             <div class="input-group w-100">
-              <input class="form-control border border-black rounded-3" type="text" name="q" placeholder="Search">
+              <input class="form-control" type="text" name="q" placeholder="Search">
               <div class="input-group-append">
-                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                <button class="form-control btn border search-btn" type="submit">
                   <span class="icon">
                     <i class="fas fa-search"></i>
                   </span>
