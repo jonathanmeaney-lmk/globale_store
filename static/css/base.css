@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
 
 /* ............................... General */ 
 
@@ -20,6 +19,19 @@ html {
     width: 1.5rem;
 }
 
+.headings {
+    font-family: 'Antonio', sans-serif;
+    color: #133965;
+
+}
+
+.body-text {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.card:hover {
+    border: #133965 1px solid !important
+}
 /* .................................... Navbar */
 
 .navbar {
@@ -84,7 +96,7 @@ html {
     font-family: 'Antonio', sans-serif;
     font-weight: 600;
     color: white;
-    text-shadow: 4px 4px 4px rgb(151, 151, 151)
+    text-shadow: 2px 2px 4px rgb(116, 116, 116)
 }
 
 
@@ -231,14 +243,14 @@ html {
         font-size: 2.5rem;
         text-align: center;
         position: relative;
-        top: 180px
-
+        top: 200px;
     }
 
     .shop-now-button {
         position: relative;
         top: 180px;
         justify-content: center;
+        box-shadow: none;
     }
 
     .homepage-image-container {
@@ -246,5 +258,6 @@ html {
         height: 100vh;
         min-width: 100;
         background-size: cover;
+       
     }
 }   

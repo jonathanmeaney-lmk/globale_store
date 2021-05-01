@@ -12,18 +12,27 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center mt-3">
-                <h2>All Beers</h2>
-                <hr class="w-100 mb-1">
+            <div class="col text-center mt-3 mb-4">
+                {% if current_categories %}
+                    {% for category in current_categories %}
+                    <h1 class="headings display-4 font-weight-bold">{{ category.friendly_name }}</h1>
+                    {% endfor %}
+                {% elif current_countries %}
+                    {% for country in current_countries %}
+                    <h1 class="headings display-4 font-weight-bold">{{ country.friendly_name }}</h1>
+                    {% endfor %}
+                {% else %}
+                    <h1 class="headings display-4 font-weight-bold">All Beers</h1>
+                {% endif %}
             </div>
         </div>
         <div class="row">
             {% for product in products %}
                 <div class="col-12 col-sm-6 col-lg-3 mb-3">
-                    <div class="card">
+                    <div class="card border">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}" class="text-center">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="card-img-top mt-3 img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}" class="text-center">
@@ -31,14 +40,14 @@
                         </a>
                         {% endif %}
                         <div class="card-body pb-0 mb-0">
-                            <p class="mb-0">{{ product.name }}</p>
-                            <p class="mb-0 text-muted">{{ product.category.friendly_name }}</p>
-                            <p class="mb-0 text-muted">{{ product.country.friendly_name }}</p>
+                            <h3 class="headings mb-1">{{ product.name }}</h3>
+                            <p class="mb-0 text-muted body-text">{{ product.category.friendly_name }}</p>
+                            <p class="mb-1 text-muted body-text"><i class="fas fa-globe-europe"></i> {{ product.country.friendly_name }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-right mb-">
                             <div class="row">
                                 <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                    <h3 class="headings mb-0 text-left text-warning font-weight-bold">${{ product.price }}</h3>
                                 </div>
                                 {% if request.user.is_superuser %}
                                 <small class="ml-3">
