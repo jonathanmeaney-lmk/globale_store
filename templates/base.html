@@ -38,7 +38,7 @@
 
         <!-- Shopping Cart Appears next to Navbar toggle on sm-md screens -->
         <li class="nav-item d-inline d-lg-none ml-auto">
-          <a class="nav-link {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
+          <a class="nav-link text-white {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
             <i class="fas fa-shopping-cart nav-icons-lg">
             </i>{% if product_count != 0 %}  
             <small class="cart-number">{{ product_count }}</small>{% endif %}
@@ -85,7 +85,7 @@
           <ul class="navbar-nav mt-2 mt-lg-0 mr-lg-4 text-dark">
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-expanded="false">
-                <i class="fas fa-user-circle nav-icons-lg"></i><span> Profile</span>
+                <i class="fas fa-user-circle nav-icons-lg"></i><span class="d-inline d-lg-none"> Profile</span>
               </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   {% if request.user.is_authenticated %}

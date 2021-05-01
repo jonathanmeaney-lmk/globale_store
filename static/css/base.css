@@ -8,7 +8,7 @@ html {
 }
 
 .header-container {
-    padding-top: 102px;
+    padding-top: 104px;
 }
 
 /* font awesome icon styling from Bulma */
@@ -57,6 +57,10 @@ html {
 
 .nav-icons-lg {
     font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-toggler{
+    border: none
 }
 
 .cart-number {
@@ -130,9 +134,6 @@ html {
     padding: 15px;
     border-radius: 10px
 }
-
-
-
 
 
 .card-img-top {
@@ -216,3 +217,22 @@ html {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+
+
+
+@media (max-width: 575px) {
+
+    #homepage-slogan {
+        font-size: 2.5rem;
+        text-align: center;
+        background-color:rgba(151, 151, 151, 0.178)
+
+    }
+
+    .homepage-image-container {
+        background: url('/media/homepage-image-mobile.jpg') no-repeat center center;
+        height: 100vh;
+        min-width: 100;
+        background-size: cover;
+    }
+}   
