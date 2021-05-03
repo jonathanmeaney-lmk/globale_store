@@ -39,6 +39,10 @@ html {
     border: #ced4da 1px solid
 }
 
+.return-links:hover {       
+    color: #133965;
+}
+
 /* .................................... Navbar */
 
 .navbar {

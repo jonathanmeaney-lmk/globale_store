@@ -10,10 +10,23 @@
 {% endblock %}
 
 {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1 mt-4">
+                <p class="headings"><i class="fas fa-lg fa-chevron-left mr-2"></i> 
+                <a class="headings return-links" href="{% url 'products' %}">All Beers</a> 
+                <span class="mx-1">|</span> 
+                <a class="headings return-links" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> 
+                <span class="mx-1">|</span> 
+                <a class="headings return-links" href="{% url 'products' %}?country={{ product.country.name }}">{{ product.country.friendly_name }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
-                <div class="image-container mt-5 mb-3">
+                <div class="image-container mt-3 mb-3">
                     {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
                         <img class="card-img img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -26,7 +39,7 @@
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-                <div class="product-details-container mb-2 mt-md-5">
+                <div class="product-details-container mb-2 mt-md-3">
                     <h2 class="mb-3 headings">{{ product.name }}</h2>
                     <p class="text-muted body-text mb-0"><em>{{ product.brewer }}</em></p>
                     <hr class="my-1">
