@@ -6,6 +6,11 @@ html {
     height: 100%;
 }
 
+body {
+    font-family: 'Noto Sans', sans-serif;
+    color: #133965;
+}
+
 .header-container {
     padding-top: 104px;
 }
@@ -135,9 +140,20 @@ html {
     color: #133965
 }
 
+
 .decrement-qty,
 .increment-qty {
     color: #133965;
+}
+
+.update-link {
+    background: #133965;
+    color: white;
+}
+
+.update-link:hover {
+    background-color: #fcb500;
+    color: #133965
 }
 
 .btn-black {

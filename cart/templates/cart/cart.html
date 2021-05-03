@@ -10,26 +10,29 @@
     </div>
     
     <div class="container">
-        <div class="row mb-3">
-            <div class="col">
-                <h2>Your Beer Cart</h2>
+        <div class="row">
+            <div class="col text-center mt-4 mb-2">
+                <h2 class="headings">Your Beer Cart</h2>
             </div>
         </div>
+
+    <!-- Shopping Cart Layout for Tablet to Large Screens -->
+        
         {% if cart_items %}
         <div class="row d-none d-md-block">´
             <div class="col">
                 <div class="row mb-0">
                     <div class="col-md-7 col-lg-6">
-                        <p class="text-muted mb-0">Product Info:</p>
+                        <p class="text-muted mb-0 ml-3">Product Info</p>
                     </div>
                     <div class="col-md-2">
-                        <p class="text-muted mb-0">Price:</p>
+                        <p class="text-muted mb-0">Price</p>
                     </div>
                     <div class="col-md-1 col-lg-2">
         
                     </div>
                     <div class="col-md-2">
-                        <p class="text-muted mb-0">Subtotal:</p>
+                        <p class="text-muted mb-0">Subtotal</p>
                     </div>
                 </div>
             </div>
@@ -47,13 +50,13 @@
                             {% endif %}
                         </div>
                     <div class="col-md-4 col-lg-4">
-                        <h5>{{ item.product.name}}</h5>
+                        <h5 class="headings">{{ item.product.name}}</h5>
                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                         <form class="form update-form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
                             {% csrf_token %}
                             <div class="form-row">
                                 <div class="form-group">
-                                    <p class="mt-1"><strong>Quantity:</strong></p>
+                                    <p class="ml-1 mt-2 mb-1 body-text">Quantity:</p>
                                     <div class="input-group">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
@@ -75,7 +78,7 @@
                                                     </span>
                                                 </button>
                                             </div>
-                                            <a class="btn btn-black btn-sm update-link"><small>UPDATE</small></a>
+                                            <a class="btn btn-sm update-link"><small>UPDATE</small></a>
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +108,7 @@
                                 <h6><strike>Delivery (15%)</strike>:</h6>
                                 {% endif %}
                                 <hr class="w-100">
-                                <h4>Grand Total:</h4>
+                                <h4 class="headings">Grand Total:</h4>
                             </div>
                             <div class="col-2">
                                 <h6><strong>${{ total|floatformat:2 }}</strong></h6>
@@ -128,14 +131,14 @@
                         </div>
                         {% endif %}
                         <div class="row justify-content-end mr-2 mb-3">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black mt-3 rounded-0 btn-lg">
+                            <a href="{% url 'products' %}" class="btn headings return-links mt-3 mr-2 rounded-0 btn-lg">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-black mt-3 rounded-0 btn-lg">
-                                <span class="text-uppercase">Go to Checkout</span>
+                            <a href="{% url 'checkout' %}" class="btn btn-brand-blue mt-3 btn-lg">
+                                <span class="text-uppercase">Go to Checkout </span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>
                                 </span>
@@ -154,6 +157,9 @@
                 </div>
             </div>
         </div>
+    
+    <!-- Shopping Cart Layout for Mobile Screens -->
+
         <div class="row d-block d-md-none">
             <div class="row">
                 <div class="col text-right mr-2">
@@ -163,12 +169,12 @@
                     {% else %}
                     <h6><strike>Delivery(10%)</strike>: ${{ delivery|floatformat:2 }}</h6>
                     {% endif %}
-                    <h5>Grand Total: <strong>{{ grand_total|floatformat:2 }}</strong></h5>
+                    <h5>Grand Total: <strong>${{ grand_total|floatformat:2 }}</strong></h5>
                 </div>
             </div>
             <div class="row">
                 <div class="col text-right mr-2">
-                    <a href="{% url 'checkout' %}" class="btn btn-black mt-3 rounded-0">
+                    <a href="{% url 'checkout' %}" class="btn btn-brand-blue mt-3 btn-lg">
                         <span class="text-uppercase">Go to Checkout</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
@@ -183,7 +189,7 @@
                             <i class="fas fa-chevron-right"></i>
                         </span>
                     </a>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black mt-1 rounded-0 btn-lg">
+                    <a href="{% url 'products' %}" class="btn headings return-links mt-1 btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
@@ -200,8 +206,8 @@
                 </div>
             </div>
             {% endif %}
-            <hr>
-            <p class="text-muted mb-3 text-center">Order Summary:</p>
+            <p class="text-muted mb-2 text-center">Order Summary:</p>
+            <hr class="mt-1">
             {% for item in cart_items %}
             <div class="row">
                 <div class="col-6 text-center">
@@ -212,7 +218,8 @@
                     {% endif %}
                 </div>
                 <div class="col-6">
-                    <h5>{{ item.product.name}}</h5 >
+                    <h5 class="headings">{{ item.product.name}}</h5>
+                    <small>Quantity:</small>
                     <form class="form update-form mb-0" action="{% url 'adjust_cart' item.item_id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
@@ -239,7 +246,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <a class="btn btn-black btn-sm update-link mb-0 ml-2"><small>UPDATE</small></a>
+                                    <a class="btn btn-sm update-link mb-0 ml-2"><small>UPDATE</small></a>
                                     <a class="remove-item btn btn-sm btn-danger ml-2" id="remove_{{ item.item_id }}"><i class="fas fa-trash-alt fa-sm"></i></a>
                                 </div>
                             </div>
@@ -249,7 +256,6 @@
                     <hr class="w-75 my-1 ml-0">
                     <p class="my-0"><strong>Subtotal: ${{ item.product_subtotal }}</strong></p>
                 </div>
-            
             </div>
             <hr>
             {% endfor %}
