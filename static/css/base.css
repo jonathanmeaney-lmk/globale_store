@@ -27,11 +27,18 @@ html {
 
 .body-text {
     font-family: 'Noto Sans', sans-serif;
+    color: #133965;
 }
 
 .card:hover {
     border: #133965 1px solid !important
 }
+
+.form-select {
+    font-size: 12px;
+    border: #ced4da 1px solid
+}
+
 /* .................................... Navbar */
 
 .navbar {
@@ -71,7 +78,7 @@ html {
     font-size: 1.5rem;
 }
 
-.navbar-dark .navbar-toggler{
+.navbar-dark .navbar-toggler {
     border: none
 }
 
@@ -102,7 +109,8 @@ html {
 
 /* ............................... Buttons  */
 
-.shop-now-button {
+.shop-now-button,
+.btn-brand-blue {
     background: #133965;
     color: white;
     min-width: 260px;
@@ -110,14 +118,23 @@ html {
     box-shadow: 4px 4px 4px #5d5d5e;
 }
 
+.btn-brand-blue {
+    box-shadow: none;
+}
+
 .search-btn,
 .shop-now-button:hover,
 .shop-now-button:active,
-.shop-now-button:focus {
+.shop-now-button:focus,
+.btn-brand-blue:hover {
     background-color: #fcb500;
     color: #133965
 }
 
+.decrement-qty,
+.increment-qty {
+    color: #133965;
+}
 
 .btn-black {
     background: black;
@@ -142,9 +159,8 @@ html {
 
 
 .reviews {
-    background-color: rgb(235, 235, 235);
     padding: 15px;
-    border-radius: 10px
+    border-radius: 5px
 }
 
 
@@ -154,7 +170,8 @@ html {
 }
 
 .product-description {
-    font-size: 12px;
+    font-size: 14px;
+    color: #133965
 }
 
 .cart-image {
@@ -234,11 +251,6 @@ html {
 
 @media (max-width: 575px) {
 
-
-    .header-container {
-        padding-top: 90px;
-    }
-
     #homepage-slogan {
         font-size: 2.5rem;
         text-align: center;
@@ -256,7 +268,6 @@ html {
     .homepage-image-container {
         background: url('/media/homepage-image-mobile.jpg') no-repeat center center;
         height: 100vh;
-        min-width: 100;
         background-size: cover;
        
     }
