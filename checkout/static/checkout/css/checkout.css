@@ -11,15 +11,14 @@ StripeElement,
 
 .form-control:focus {
   box-shadow: none !important;
-  border-bottom: solid 1px rgb(14, 14, 14) !important
+  border-bottom: solid 1px #fcb500 !important
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  border-bottom: solid 1px rgb(97, 97, 97)
+  border-bottom: solid 1px #fcb500
 }
-
 
 .stripe-style-input::placeholder {
     color: #aab7c4;

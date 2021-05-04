@@ -36,7 +36,7 @@ body {
 }
 
 .card:hover {
-    border: #133965 1px solid !important
+    border: #133965b9 1px solid !important
 }
 
 .form-select {
@@ -46,6 +46,10 @@ body {
 
 .return-links:hover {       
     color: #133965;
+}
+
+.fieldset-border {
+    border: #133965 1px solid
 }
 
 /* .................................... Navbar */
