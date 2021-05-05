@@ -160,25 +160,10 @@ body {
     color: #133965
 }
 
-.btn-black {
-    background: black;
-    color: white;
-}
 
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
-}
 
-.text-black {
-    color: #000 !important;
-}
 
-.border-black {
-    border: 1px solid black !important;
-}
+
 
 
 
@@ -229,6 +214,11 @@ body {
     border-bottom: 1px solid #cfd7df;
 }
 
+.allauth-form-inner-content input:focus {
+    box-shadow: none !important;
+    border-bottom: solid 1px #fcb500 !important
+}
+
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
 }
@@ -241,6 +231,7 @@ body {
 .allauth-form-inner-content input[type='submit'] {
 	/* btn */
 	display: inline-block;
+    font-family: 'Antonio', sans-serif;
     font-weight: 400;
     color: #fff;
     text-align: center;
@@ -249,12 +240,15 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
+    text-transform: uppercase;
+    background-color: #133965;
+    border: 1px solid #133965;
+    border-radius: 7px;
     padding: .375rem .75rem;
+    min-width: 150px;
+    margin: 5px 0px;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: 0;
 
     /* standard bootstrap btn transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -262,9 +256,9 @@ body {
 
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
-    background-color: #222;
-    border-color: #222;
+	color: #133965;
+    background-color: #fcb500;
+    border-color: #fcb500;
 }
 
 .allauth-form-inner-content a {
