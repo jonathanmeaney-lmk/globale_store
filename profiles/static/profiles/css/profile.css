@@ -12,6 +12,11 @@
     border-bottom: 1px solid #cfd7df;
 }
 
+#profile-update-form .form-control:focus {
+    box-shadow: none !important;
+    border-bottom: solid 1px #fcb500 !important
+}
+
 .profile-form-input {
     box-sizing: border-box;
     height: 43px;
@@ -20,6 +25,11 @@
     border-radius: 0px;
     background-color: white;
     transition: box-shadow 150ms ease;
+}
+
+profile-form-input:focus {
+    box-shadow: none !important;
+    border-bottom: solid 1px #fcb500 !important
 }
 
 .fieldset-label {
@@ -48,3 +58,33 @@
 #id_default_country option:first-child {
     color: #aab7c4;
 }
+
+
+.order-container {
+    border: 1px solid #133965;
+}
+
+.btn-order-panel {
+    background-color: #133965;
+    color: white;
+    font-size: 12px
+}
+
+.btn-details {
+    background-color: #133965;
+    color: white;
+    font-size: 12px 
+}
+
+.btn-details:hover,
+.btn-details:active {
+    background-color: #133965;
+    color: white;
+}
+
+.btn-issue {
+    background-color: #fcb500;
+    color: #133965;
+    font-size: 12px 
+}
+

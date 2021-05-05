@@ -42,13 +42,13 @@
             <div class="col">
                 {% for item in cart_items %}
                 <div class="row">
-                        <div class="col-md-3 col-lg-2">
-                            {% if item.product.image %}
-                            <img class="img-fluid cart-image rounded d-inline" src="{{ item.product.image.url }}">
+                    <div class="col-md-3 col-lg-2">
+                        {% if item.product.image %}
+                        <img class="img-fluid cart-image rounded d-inline" src="{{ item.product.image.url }}">
                             {% else %}
-                            <img class="img-fluid cart-image rounded d-inline" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
-                            {% endif %}
-                        </div>
+                        <img class="img-fluid cart-image rounded d-inline" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
+                        {% endif %}
+                    </div>
                     <div class="col-md-4 col-lg-4">
                         <h5 class="headings">{{ item.product.name}}</h5>
                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
