@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -59,11 +59,11 @@ def order_issue(request, order_number):
         user = get_object_or_404(User, username=request.user)
         email = request.POST.get('email')
 
-        redirect_url = request.POST.get('redirect_url')
-
         OrderIssue.objects.create(order=order, issue_type=issue_type, user=user, description=description, email=email)
 
-        return redirect(redirect_url)
+        messages.success(request, 'Your issue has been logged. Will be in touch shortly.')
+
+        return redirect(reverse('view_orders'))
 
     template = 'profiles/order_issue.html'
     context = {
