@@ -41,7 +41,7 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    size = models.IntegerField()
+    size = models.PositiveIntegerField()
     abv = models.DecimalField(max_digits=6, decimal_places=1)
     brewer = models.CharField(max_length=254, null=False, blank=False)
     image = models.ImageField(null=True, blank=True)
