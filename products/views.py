@@ -51,7 +51,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = product.reviews.all()
+    reviews = product.reviews.all().order_by('-date')
 
     if request.method == 'POST' and request.user.is_authenticated:
         rating = int(request.POST.get('rating', 3))
@@ -60,7 +60,9 @@ def product_detail(request, product_id):
 
         redirect_url = request.POST.get('redirect_url')
 
-        review = ProductReview.objects.create(product=product, user=user, content=content, rating=rating)
+        ProductReview.objects.create(product=product, user=user, content=content, rating=rating)
+
+        messages.success(request, f'Your review for {product} has been submitted. Thanks for the feedback!')
 
         return redirect(redirect_url)
 
