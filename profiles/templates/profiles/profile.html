@@ -54,21 +54,22 @@
                             <p class="mb-1"><small class="headings mb-0">Grand Total</small></p>
                             <p>${{ order.grand_total }}</p>
                         </div>
+                        
                         <div class="col-2">
                             <a class="btn btn-sm btn-details mt-3" href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
                                 See Details
                             </a>
                         </div>
                         <div class="col-2">
-                            <button class="btn btn-sm btn-issue mt-3" type="button" data-toggle="collapse" data-target="#collapseExample{{ order.id }}" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-sm btn-issue mt-3" type="button" data-toggle="collapse" data-target="#collapseform{{ order.id }}" aria-expanded="false" aria-controls="collapseExample">
                                 File Issue 
                             </button> 
                         </div>
                     </div>
-                    <div class="collapse" id="collapseExample{{ order.id }}">
+                    <div class="collapse" id="collapseform{{ order.id }}">
                         <hr>
                         <div>
-                          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                          Form
                         </div>
                     </div>
                 </div>

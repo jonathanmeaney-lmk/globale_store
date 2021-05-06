@@ -5,9 +5,10 @@ from django.db.models import Sum
 from django.conf import settings
 
 from django_countries.fields import CountryField
-
+from django.contrib.auth.models import User
 from products.models import Product
 from profiles.models import UserProfile
+
 
 
 class Order(models.Model):
@@ -78,3 +79,15 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
+
+
+class OrderIssue(models.Model):
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='issue')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='issue')
+    issue_type = models.CharField(max_length=254, null=False, blank=False)
+    description = models.TextField(null=True, blank=True)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.order.order_number}'
