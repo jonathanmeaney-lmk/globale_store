@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -34,6 +34,46 @@ def profile(request):
     return render(request, template, context)
 
 
+def view_orders(request):
+    profile = get_object_or_404(UserProfile, user=request.user)
+
+    orders = profile.orders.all().order_by('-date')
+
+    template = 'profiles/view_orders.html'
+    context = {
+        'orders': orders,
+    }
+
+    return render(request, template, context)
+
+
+def order_issue(request, order_number):
+
+    user = get_object_or_404(User, username=request.user)
+    order = get_object_or_404(Order, order_number=order_number)
+
+    if request.method == 'POST' and request.user.is_authenticated:
+        order = get_object_or_404(Order, order_number=order_number)
+        issue_type = request.POST.get('order_issue_select')
+        description = request.POST.get('description')
+        user = get_object_or_404(User, username=request.user)
+        email = request.POST.get('email')
+
+        redirect_url = request.POST.get('redirect_url')
+
+        OrderIssue.objects.create(order=order, issue_type=issue_type, user=user, description=description, email=email)
+
+        return redirect(redirect_url)
+
+    template = 'profiles/order_issue.html'
+    context = {
+        'order': order,
+        'user': user
+    }
+
+    return render(request, template, context)
+
+
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -49,5 +89,6 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
 
 
