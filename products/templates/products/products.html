@@ -12,7 +12,7 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center mt-3 mb-4">
+            <div class="col text-center mt-4 mb-4">
                 {% if current_categories %}
                     {% for category in current_categories %}
                     <h1 class="headings display-4 font-weight-bold">{{ category.friendly_name }}</h1>
@@ -21,6 +21,8 @@
                     {% for country in current_countries %}
                     <h1 class="headings display-4 font-weight-bold">{{ country.friendly_name }}</h1>
                     {% endfor %}
+                {% elif search_term %}
+                    <h2 class="headings font-weight-bold">{{ products|length }} results for "{{ search_term|title }}"</h2>
                 {% else %}
                     <h1 class="headings display-4 font-weight-bold">All Beers</h1>
                 {% endif %}
@@ -40,7 +42,7 @@
                         </a>
                         {% endif %}
                         <div class="card-body pb-0 mb-0">
-                            <h3 class="headings mb-1">{{ product.name }}</h3>
+                            <h3 class="headings mb-1">{{ product.name|title }}</h3>
                             <a class="mb-0 text-muted body-text" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> <br>
                             <a class="mb-1 text-muted body-text" href="{% url 'products' %}?country={{ product.country.name }}"><i class="fas fa-globe-europe"></i> {{ product.country.friendly_name }}</a>
                         </div>
