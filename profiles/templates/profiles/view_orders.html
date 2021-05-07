@@ -49,6 +49,16 @@
                             <a class="btn btn-sm btn-issue mt-3 w-75" href="{% url 'order_issue' order.order_number %}" title="{{ order.order_number }}">
                                 File Issue
                             </a>
+                            {% for issue in order_issues %}
+                                {% if order.id == issue.order.id %}
+                                    <p class="small text-danger mt-1 mb-0">
+                                        <span class="icon">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                        </span>
+                                        <span>Issue Logged</span>
+                                    </p>
+                                {% endif %}
+                            {% endfor%}
                         </div>
                     </div>
                     <div class="collapse" id="collapseDetails{{ order.id }}">

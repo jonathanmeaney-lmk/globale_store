@@ -39,10 +39,12 @@ def view_orders(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
     orders = profile.orders.all().order_by('-date')
+    order_issues = OrderIssue.objects.all()
 
     template = 'profiles/view_orders.html'
     context = {
         'orders': orders,
+        'order_issues': order_issues
     }
 
     return render(request, template, context)
