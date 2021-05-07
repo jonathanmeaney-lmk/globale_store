@@ -65,7 +65,7 @@ def order_issue(request, order_number):
 
         OrderIssue.objects.create(order=order, issue_type=issue_type, user=user, description=description, email=email)
 
-        messages.success(request, 'Your issue has been logged. Will be in touch shortly.')
+        messages.success(request, f'Your issue for Order: {order_number} has been logged. We will be in touch shortly.')
 
         return redirect(reverse('view_orders'))
 
