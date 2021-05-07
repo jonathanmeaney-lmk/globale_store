@@ -1,5 +1,8 @@
 from random import randint
 from django.db import models
+from django.core.validators import (
+    MaxValueValidator, MinValueValidator
+)
 
 from django.contrib.auth.models import User
 
@@ -40,9 +43,9 @@ class Product(models.Model):
     sku = models.CharField(max_length=32, null=False, editable=False)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    size = models.PositiveIntegerField()
-    abv = models.DecimalField(max_digits=6, decimal_places=1)
+    price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MaxValueValidator(100, message=None), MinValueValidator(1, message=None)])
+    size = models.PositiveIntegerField(validators=[MaxValueValidator(1000, message=None), MinValueValidator(100, message=None)])
+    abv = models.DecimalField(max_digits=6, decimal_places=1, validators=[MaxValueValidator(50, message=None), MinValueValidator(0, message=None)])
     brewer = models.CharField(max_length=254, null=False, blank=False)
     image = models.ImageField(null=True, blank=True)
 
