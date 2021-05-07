@@ -26,7 +26,7 @@
                 {% csrf_token %}
                 <select class="form-select rounded body-text p-2 w-100 my-2" name="order_issue_select" id="order_issue_select"
                     aria-label="select order issue" required>
-                    <option selected disabled>What is your issue?</option>
+                    <option value="" selected disabled>What is your issue?</option>
                     <option value="Order has not arrived">Order has not arrived</option>
                     <option value="I recieved the wrong items">I recieved the wrong items</option>
                     <option value="I recieved the wrong quantity of items">I recieved the wrong quantity of items</option>
