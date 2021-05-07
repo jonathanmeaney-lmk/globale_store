@@ -88,6 +88,7 @@ class OrderIssue(models.Model):
     description = models.TextField(null=True, blank=True)
     email = models.EmailField(max_length=254, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
+    issue_resolved = models.BooleanField(default=False, null=True, blank=True)
 
     def __str__(self):
         return f'{self.order.order_number}'

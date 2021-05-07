@@ -29,7 +29,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class OrderIssueAdmin(admin.ModelAdmin):
-    list_display = ('order', 'date', 'user')
+    list_display = ('order', 'date', 'user', 'issue_resolved')
 
     ordering = ('-date',)
 
