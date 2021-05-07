@@ -50,12 +50,20 @@
                                 File Issue
                             </a>
                             {% for issue in order_issues %}
-                                {% if order.id == issue.order.id %}
+                                {% if order.id == issue.order.id and not issue.issue_resolved %}
                                     <p class="small text-danger mt-1 mb-0">
                                         <span class="icon">
                                             <i class="fas fa-exclamation-circle"></i>
                                         </span>
                                         <span>Issue Logged</span>
+                                    </p>
+                                {% endif %}
+                                {% if order.id == issue.order.id and issue.issue_resolved %}
+                                    <p class="small text-success mt-1 mb-0">
+                                        <span class="icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </span>
+                                        <span>Issue Resolved</span>
                                     </p>
                                 {% endif %}
                             {% endfor%}
