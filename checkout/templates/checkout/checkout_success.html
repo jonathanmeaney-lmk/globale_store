@@ -110,11 +110,11 @@
                 <div class="row">
                     <div class="col-12">
                         {% if from_profile %}
-                        <a href="{% url 'profile' %}" class="btn headings return-links my-2 mr-2 rounded-0 btn-lg">
+                        <a href="{% url 'view_orders' %}" class="btn headings return-links my-2 mr-2 rounded-0 btn-lg">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
                             </span>
-                            <span class="text-uppercase">Back to Profile</span>
+                            <span class="text-uppercase">Back to Order History</span>
                         </a>
                         {% else %}
                         <a href="{% url 'products' %}" class="btn headings return-links mt-3 my-2 rounded-0 btn-lg">

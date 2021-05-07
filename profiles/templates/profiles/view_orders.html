@@ -38,7 +38,10 @@
                             <p>${{ order.grand_total }}</p>
                         </div>
                         <div class="col-6 col-md-2 text-center text-md-left">
-                            <a class="btn btn-sm btn-details mt-3 w-75" data-toggle="collapse" href="#collapseDetails{{ order.id }}" role="button" aria-expanded="false" aria-controls="collapseDetails">
+                            <a class="d-none d-md-block btn btn-sm btn-details mt-3 w-75" data-toggle="collapse" href="#collapseDetails{{ order.id }}" role="button" aria-expanded="false" aria-controls="collapseDetails">
+                                See Details
+                            </a>
+                            <a class="d-block d-md-none btn btn-sm btn-details mt-3" href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
                                 See Details
                             </a>
                         </div>
