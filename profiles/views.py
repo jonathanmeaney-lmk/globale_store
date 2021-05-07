@@ -34,6 +34,7 @@ def profile(request):
     return render(request, template, context)
 
 
+@login_required
 def view_orders(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -47,6 +48,7 @@ def view_orders(request):
     return render(request, template, context)
 
 
+@login_required
 def order_issue(request, order_number):
 
     user = get_object_or_404(User, username=request.user)

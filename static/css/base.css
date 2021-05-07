@@ -187,6 +187,11 @@ body {
     width: 130px;
 }
 
+.order-image {
+    height: 70px;
+    width: 70px;
+}
+
 .free-delivery-warning {
     font-size: 14px
 }
