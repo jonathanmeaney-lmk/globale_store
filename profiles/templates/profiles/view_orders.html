@@ -19,6 +19,9 @@
         <div class="col-12 mb-3">
             <h2 class="text-center headings">Order History</h2>
         </div>
+    </div>
+    <div class="row">
+        {% if orders %}
         <div class="d-none d-md-block"></div>
             <div class="col-12 col-lg-10 offset-lg-1">
                 {% for order in orders %}
@@ -79,7 +82,7 @@
                                             <h5 class="headings text-center mb-3">Order Summary:</h5>
                                         </div>
                                     </div>
-                                    <div class="row">´
+                                    <div class="row">
                                         <div class="col">
                                             <div class="row mb-1">
                                                 <div class="col-md-7 col-lg-6">
@@ -167,7 +170,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12 col-md-8">
-                                            <p class="mb-0">{{ order.phone_number }}</p>
+                                            <p class="mb-0"><i class="fas fa-phone"></i> {{ order.phone_number }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -219,5 +222,16 @@
                 {% endfor %}
             </div>
         </div>
+        {% else %}
+        <div class="container">
+            <p class="lead mb-5">There's nothing in your order history yet.</p>
+            <a href="{% url 'products' %}" class="btn headings return-links mr-2 rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Keep Shopping</span>
+            </a>
+        </div>
+        {% endif %}
     </div>
 {% endblock %}
