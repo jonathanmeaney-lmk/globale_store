@@ -1,8 +1,10 @@
 <h1 align="center"><strong>GlobALE Beer Store</strong></h1>
 
-[View live project here]
+[View live project here](https://globale-beerstore-jm.herokuapp.com/)
 
 **The 'one-stop shop' for finely crafted beers from around the world**
+
+<h2 align="center"><img src="readme-screenshots/intro-pic.jpg" style="max-height:400px;"></h2>
 
 The beer market and average beer consumer have changed drastically over the past decade or so, which has led to hundreds of craft beer makers popping up all over the world, as well as the emergence of longer-standing, small-scale brewers who have risen to prominence due to the high quality of their beers. 
 
@@ -22,7 +24,7 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 <hr>
 
-## **User Stories**
+## **USER STORIES**
 
 ### **<u>Visitor Goals</u>**
 
@@ -87,12 +89,38 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 <hr>
 
-## **Design**
+## **TECHNOLOGIES USED**
+
+### **Languages Used**
+
+-   [HTML5](https://en.wikipedia.org/wiki/HTML5)
+-   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+-   [Python](https://en.wikipedia.org/wiki/Python)
+
+
+### **Frameworks, Libraries & Programs Used**
+
+- [Bootstrap 4](https://getbootstrap.com/): Bootstrap 4 is used to assist with the responsiveness, positioning and styling of elements of the website. 
+- [jQuery](https://jquery.com/): jQuery is used for the navbar toggler function, and for user interactivity (e.g. to dynamically show, hide, add and delete elements acorss the website).
+- [Django](https://www.djangoproject.com/): The Django Framework and the Jinja templating language are used to develop the full-stack web-based appplication using Python.
+- [Gitpod](https://github.com/): Gitpod is used as the IDE to develop the project.
+- [Git](https://git-scm.com/): Git is used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+- [GitHub](https://github.com/): GitHub is used to store the projects code after being pushed from Git.
+- [Heroku](https://www.heroku.com/): Heroku is used to deploy the project to the web and is linked to the GitHub repository (see more in Deployment section)
+- [Stripe](https://stripe.com/): Stripe is used for the secure processing of payments.
+- [Amazon Web Services](https://www.mongodb.com/): Amazon Web Services is used to store static files and media files for the deployed project
+
+
+<hr>
+
+## **DESIGN**
 
 ### **Colors**
 
    - The brand colors, navy blue, white and orange have been user across the sight, while light greys have been used for muted texts and dividers.
-   <img src="readme-screenshots/color-scheme.png"  alt="colorscheme" style="border-color:lightgrey;border-style:solid;border-width:1px; max-height:300px">
+
+      <img src="readme-screenshots/color-scheme.jpg"  alt="colorscheme" style="border-color:lightgrey;border-style:solid;border-width:1px; max-height:300px">
 
 ### **Fonts**
  - The 'Antonio' font has been used for the logo and headings throughout the site, with 'Sans Seriff' as backup.
@@ -126,9 +154,31 @@ In response to these market changes, the GlobALE digital beer store has been est
    - The database used in development is sqlite3 (as provided by Django).
    - The database used in production is PostGres (as provided by Heroku). More info on setting up the Postgres database can be found the Deployment section below.
    
-<img src="readme-screenshots/database-schema.png"  alt="database schema" style="border-color:lightgrey;border-style:solid;border-width:1px">
+<img src="readme-screenshots/database-schema.jpg"  alt="database schema" style="border-color:lightgrey;border-style:solid;border-width:1px">
 
 <hr>
+
+## **DEVELOPMENT**
+
+
+- First, a repository for the project was created on GitHub, which is connected to the [Gitpod online IDE](https://www.gitpod.io/).
+
+-  The project was developed using the Gitpod online IDE, using HTML, CSS, Python and Javacript, as well as the Django, Bootstrap and JQuery frameworks. 
+
+- In the GitPod project workspsace, Django was installed using the CLI: 
+   - type: ***pip3 install django*** 
+
+- Before creating a Heroku app (as outlined in the Deployment section), a requirements.txt file was created in the project on the Gitpod IDE in order to tell Heroku what applications and dependencies are required to run the application (image below shows the contents of the requirements.txt file). The requirements.txt file was created using the CLI: 
+
+   - type: ***pip3 freeze > requirements.txt***
+
+   <img src="readme-screenshots/requirements.jpg"  alt="database schema" style="border-color:lightgrey;border-style:solid;border-width:1px">
+
+-   The project was regularly commited using the Git command line interface on Gitpod.
+-   After each commit, the project was pushed to Github, and then later pushed to Heruko for deployment (see more inDeployment section)
+
+<hr>
+
 
 ## **Deployment**
 
