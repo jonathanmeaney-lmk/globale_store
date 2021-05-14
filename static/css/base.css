@@ -293,4 +293,27 @@ body {
         background-size: cover;
        
     }
+
+    .card-img-top {
+        height: 180px;
+        width: 300px;
+    }
+
+    .product-name-heading {
+        font-size: 1rem
+
+    }
+
+    .product-body-text {
+        font-size: .75rem;
+    }
+
+    .product-price {
+        font-size: 1.25rem;
+    }
+
+    .card {
+        border: none !important;
+    }
+
 }   
