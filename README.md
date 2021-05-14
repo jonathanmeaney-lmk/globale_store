@@ -44,19 +44,21 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 1. I want to sign up as a registered user of the GlobALE store.
 
-2. As a registered user, I want to log in to the GlobALE store.
+2. As a registered user, I want to sign in to the GlobALE store.
 
-3. As a logged in user, I want to have view my personalized user profile and make changes to my profile details.
+3. As a signed in user, I want to view my personalized user profile and make add/update my delivery details.
 
-4. As a logged in user, I want to view past orders. 
+4. As a signed in user, I want to view past orders. 
 
-5. As a registered user, I have forgotten my password and would like to reset it in order to log in.
+5. As a signed in user, I want to log out of the GlobALE store. 
+
+6. As a signed in user, I have forgotten my password and would like to reset it in order to sign in.
 
 **Storing items for purchase and making purchases**
 
-1. Having chosen a project I want to purchase, I want to select the quantity of the product and add it a shopping cart to make them available for purchase at a later point. 
+1. Having chosen a project I want to purchase, I want to select the quantity of the product and add it to a shopping cart to make it available for purchase at a later point. 
 
-2. I want easily view my shopping cart at any point, and delete or update products or items currently in my shopping cart.
+2. I want to easily view my shopping cart at any point, and delete or update products or items currently in my shopping cart.
 
 3. I want to proceed to purchase the items in my shopping cart.
 
@@ -364,8 +366,15 @@ In response to these market changes, the GlobALE digital beer store has been est
         - Now copy and paste the new webhook secret key into the Heroku config variable
         <img src="readme-screenshots/deployment-18.jpg"  alt="deployment-18" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
-      
+<hr>
 
+## **TESTING**
    
+[Click here to find to the Testing Document](TESTING.md).
 
-   
+Contents:
+
+ - User Stories Testing
+ - Functionality Testing
+ - Code Validation
+
