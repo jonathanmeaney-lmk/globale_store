@@ -143,3 +143,79 @@
 - Admin users can contact the User that has filed the order issue by using the email provided when the user submitted the order issue. Once an issue has been resolved, in the Order Issue page in the Django Admin, admin users can select 'Yes' in the 'Query Resolved' field to close the Order Issue. 
 
 <hr>
+
+## **FUNCTIONALITY TESTING**
+
+*The following functionality and interactive features of the entire website were checked to ensure they are working correctly:*
+
+### **Navbar and Homepage**
+
+- GlobALE Logo: When clicked, returns user to the homepage.
+- All Beers link: Changes color when hovered over, when clicked, directs users to the All Beers page.
+- Categories Link: Changes color when hovered over. Opens dropdown menu when clicked. Each category link directs the user to the correct chosen category page.
+- Countries Link:  Changes color when hovered over. Opens dropdown menu when clicked. Each country link directs the user to the correct chosen country page. 
+- Profile link: Changes color when hovered. Opens dropdown menu when clicked. Each link in the drop down menu directs user to correct page.
+   - When a user is not signed in: the dropdown menu only displays the 'Register' and 'Sign In' links.
+   - When a regular user is signed in: the dropdown menu displays the 'My Profile', 'Orders' and 'Sign Out' links.
+   - When a admin user (superuser) is signed in: the dropdown menu displays the 'Product Management', 'My Profile', 'Orders' and 'Sign Out' links.
+- Shopping Cart link: Changes color when hovered. When clicked, directs user to the Shopping Cart page.
+- Buy Beer button: Changes color when hovered over. When clicked, directs users to the All Beers page.
+- Search bar: 
+  - When user clicks the search button after entering a keyword, user is shown a correct list of products containing those keywords. 
+  - A feedback message title is displayed informing them of the number of results for the keyword entered **PICTURE 1**.
+  - If a user clicks the search button without inputting a word in the search bar, a message is displayed to warn them that they have not entered any search criteria, and they are redirected to the All Beers page. **PICTURE 2**
+- Responsive design:
+    - 'Hamburger' toggle button: For smaller screens, the hamburger toggle button appears and, when clicked, shows/hides navbar links. 
+    - The homepage image is repositioned, and slogan becomes smaller and is repositioned. Buy beer button is also repositioned. **PICTURE 3**
+
+### **Products Page**
+- When a user is on the 'All Beers' / general Products page, they are shown all of the products on the store, which are displayed in alphabetic order.
+- Each product card contains the correct image, name, category, country and price. 
+- When a user hovers over a product, the border changes color. When they click on the product image, they are taken to the Product Detail page.
+- When a user clicks on the 'country' link in the product card, they are directed to the correct category page.
+- When a user clicks on the 'category' link in the product card, they are directed to the correct country page.
+- When a user lands on the Products page after having chosen a particularly category or country, they are shown a correct list of products for that particular chosen country or category only. The correct page heading displays for each chosen category or country.  **PICTURE 4 / PICTURE 5**
+- Responsive design:
+  - Four product cards displayed per row for laptop / monitor screens
+  - Two product cards displayed per row for tablet screens.
+  - Images and texts resized to allow two products to be correctly displayed per row correctly for mobile screens. **PICTURE 6**
+
+### **Product Detail Page**
+
+- Clicking on a product from the Product page, directs users to the correct Product Detail page, which renders the product image, all relevant product information (name, brewer, description, price, size, ABV), a quantity input and 'Add to Cart' button, as well as a reviews form (if user is logged in) and product reviews (if any).
+
+- Above the product image, three 'back' links appear allowing users to return to the All Beers section, or the relevant category or country. When clicked, each link returns user to the correct All Beers, category or country page. **PICTURE 7**
+
+- For users that are not logged in, the reviews form is not displayed, instead a message is displayed prompting them to sign in or register to leave a review. **PICTURE 8**
+
+- For a product that does not have reviews, a message appears to inform the user that no reviews have been added for the product yet. **PICTURE 9**
+
+- Adding product to shopping cart:
+  - Quantity Inputs:
+    - 'Plus' button increases the quantity by one with each click. 
+    - 'Plus' button is disabled when user reaches 99
+    - 'Minus' button decreases the quantity by one with each click. 
+    - 'Minus' button is disabled when quantity is at 1. As such, 'Minus' button is initially disabled as the default quantity is 1. Once user clicks the 'Plus' button once to reach 2, the 'Minus' button is enabled.
+
+  - 'Add to Cart' button:
+    
+    - Changes color when hovered over.
+    - Once user clicks the 'Add to Cart' button, the selected quantity is added to their shopping cart.
+    - A message appears to inform them that the selected quantity of the product has been added to the shopping cart. 
+
+    - Shopping cart icon turns from white to orange to indicate there is something in the Cart, and next to it a number is displayed representing the number of items in the cart. **PICTURE 10**
+
+    - Should a user accidentally delete the quantity from the input bar and then click 'Add to Cart', the quantity will be set to 1 as default and 1 item of the product will be added to the cart. A message appears to inform them that 1 item has been added to their cart.
+
+- Review Form:
+
+    - Review form displays for logged in users only.
+    - When user completes form and clicks submit (submit button correctly changes color when hovered over), their review is immediately added to top of the reviews section (reviews are displayed in date order, most recent first), along with their username and the date of the review.
+    - A message appears to tell them that there review for the product was added successfully added.
+    **PICTURE 11**
+    - If user  does not choose a rating, a default rating of 3 will be submitted.
+    - If user leaves review content text input empty, the review will be submitted with just a rating.
+
+
+
+      
