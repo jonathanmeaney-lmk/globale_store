@@ -1,1 +1,1 @@
-  Boutique Ado Confirmation for Order Number {{ order.order_number }}
+  GlobALE Confirmation for Order Number {{ order.order_number|truncatechars:8 }}
