@@ -195,20 +195,24 @@ In response to these market changes, the GlobALE digital beer store has been est
    - ***pip3 install psycopg2-binary***
 4. Add these to the requirements.txt file by typing: ***pip3 freeze > requirements.txt*** in the CLI. This is to make sure that Heroku installs all the app's requirements when it is deployed.
 5. To set up the new databases, go to settings.py and import dj_database_url. Then scroll down to the Databases section and add the dj_database_url and include the 'DATABASE_URL' provided by Heroku. This can be found in the Config Variables section of the Settings tab in Heroku and begins with 'postgress:..'
+
 <img src="readme-screenshots/deployment-2.jpg"  alt="deployment-2" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 6. To run migrations to the new database, first temporarily "comment out" the exisiting sqlite3 database and then type: ***python3 manage.py migrate*** into the CLI.
 
 7. Steps to dump data from existing sqlite3 database to new Posgres database:
    - Reconnect manage.py to the sqlite3 database by "commenting out" the new dj_database and uncommenting the sqlite3 database
+
    <img src="readme-screenshots/deployment-3.jpg"  alt="deployment-3" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
    - In the CLI, type: ***./manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json*** . This creates a db.json file containing all the data from the sqlite3 database.
    - Once again reconnect manage.py to the new Postgres database by commenting out the sqlite3 database and uncommenting the dj_database
    - To load data from the db.json file into Postgres, type in the CLI: ***./manage.py loaddata db.json***
 8. To create a new superuser for the Postgres database, type in the CLI: ***python3 manage.py createsuperuser***. As prompted, enter username, email and password. 
 9. At this point, before committing these changes to Github: remove the dj_database config and uncomment the original database. Commit and push to Github. 
 10. Now to set up an easy switch between the default database and Postgres database, add the following "if-else" statement in the DATABASES section of settings.py.
-<img src="readme-screenshots/deployment-4.jpg"  alt="deployment-4" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+   <img src="readme-screenshots/deployment-4.jpg"  alt="deployment-4" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 **Deploying to Heroku:**
 
@@ -217,13 +221,17 @@ In response to these market changes, the GlobALE digital beer store has been est
 3. Log into Heroku on the CLI by typing: ***heroku login -i*** and enter credentials.
 4. Temporarily disable collectstatic, by typing in the CLI: ***heroku config:set DISABLE_COLLECTSTATIC=1 --app < heroku app name >*** 
 5. Add the heroku app and localhost to the ALLOWED_HOSTS in settings.py as follows: ***ALLOWED_HOSTS = ['< heroku app name >.herokuapp.com', 'localhost']*** 
+
 <img src="readme-screenshots/deployment-5.jpg"  alt="deployment-5" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
 6. At this point, commit and push changes to Github.
 7. Then push changes to Heroku:
    - first type in CLI: ***heroku git:remote -a < heroku app name >***
    - then type: ***git push heroku master***
 8. At this point, go to the app in Heroku and set up automatic deployments from Github:
+
 <img src="readme-screenshots/deployment-6.jpg"  alt="deployment-6" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
    - In the Deploy tab, click 'Connect to Github' in the Deployment Methods section
    - Search for the app and click 'Connect'
    - Once connected, click 'Enable Automatic Deploys'
@@ -232,9 +240,13 @@ In response to these market changes, the GlobALE digital beer store has been est
    - Add the SECRET_KEY to the environment variables in Heroku.
    - Do the same process for Gitpod (generate a different key)
    - In settings.py, set the SECRET_KEY variable to get the value from the environment, using an empty string as default.
+
    <img src="readme-screenshots/deployment-7.jpg"  alt="deployment-7" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
 10. In settings.py, set DEBUG to be true only when there is a DEVELOPMENT variable in the environment. Then add a DEVELOPMENT variable equal to True in the Gitpod environment (NOT in Heroku).
+
 <img src="readme-screenshots/deployment-8.jpg"  alt="deployment-8" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
 11. At this point, commit and push changes to Github, which will automatically push changes to Heroku. 
 
 ### <u>**Setting up Amazon Web Services to host static and image files**</u>
@@ -285,7 +297,9 @@ In response to these market changes, the GlobALE digital beer store has been est
     <img src="readme-screenshots/deployment-9.jpg"  alt="deployment-9" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 7. Click 'Add Statement', followed by 'Generate Policy', and then copy and paste the generated object code into the Bucket Policy Editor. In the Resource key of the generated object, add ***/**** at the end of the value (as in pic below). Then click 'Save Changes'. 
+
 <img src="readme-screenshots/deployment-10.jpg"  alt="deployment-10" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
 8.  Staying inside the Permissions tab, go to Access Control List and click 'Edit'. In the 'Everyone (Public Access)' section check the 'List' box in the Objects column. Then scroll down and click 'Save Changes'.
 
 **Creating a group and user to allow access to the bucket using IAM:**
@@ -301,7 +315,9 @@ In response to these market changes, the GlobALE digital beer store has been est
    - Go to 'Policies' in the IAM Dashboard and click 'Create Policy' 
    - In the 'Create Policy' section, go to the 'JSON' tab and then click 'Import managed policy'. Here search for 'S3', choose 'AmazonS3FullAccess' and press 'Import' to generate the JSON object. 
    - For the Resource key in the generated JSON object: copy and paste the bucket ARN (go back to S3-Bucket Policy to get the ARN) twice into a list, with the second ARN value containing ***/**** at the end. This is to allow actions in the bucket itself and everything in it. See pic below: 
+
    <img src="readme-screenshots/deployment-11.jpg"  alt="deployment-11" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
    - Click 'Next-tags' and then click 'Next-review'. Add a name (e.g. globale-beerstore-jm-policy) and a description (e.g. Access to S3 bucket for globale static files), and then click 'Create Policy'
 4. To attach the policy to the group: 
    - Go to 'User groups' in the IAM dashboard and click on the relevant group. 
@@ -323,25 +339,35 @@ In response to these market changes, the GlobALE digital beer store has been est
 3. Go to settings.py and add 'storages' to the INSTALLED APPS list.
 
 4. Staying in settings.py add the following code under MEDIA_ROOT and MEDIA_URL:
+
 <img src="readme-screenshots/deployment-12.jpg"  alt="deployment-12" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
 5. Go to Heroku app and add the AWS access keys to the Config Variable in the Settings tab. (Both these keys come from the .csv file downloaded in step 5 above in 'Creating a group and user to allow access to the bucket using IAM')
+
 <img src="readme-screenshots/deployment-13.jpg"  alt="deployment-13" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 6. Here, also add the USE_AWS variable and set it to True, so that the settings.py file knows to use the AWS configuration when deployed to Heroku. At this point, also remove the DISABLE_COLLECTSTATIC from the Config Vars.
 
 7. In order to tell Django where static files will be coming from in production, first add the following line of code in the AWS section in settings.py:
+
 <img src="readme-screenshots/deployment-14.jpg"  alt="deployment-14" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 **The next steps involve telling Django that in production to use S3 to store static files whenever someone runs COLLECTSTATIC and to send any uploaded images to go there also.**
 
 1. Create a file called **custom_storages.py** and add the following code to that file:
+
 <img src="readme-screenshots/deployment-15.jpg"  alt="deployment-15" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
 2. Back in settings.py, add the following code:
+
 <img src="readme-screenshots/deployment-16.jpg"  alt="deployment-16" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
 3. At this point, commit and push these changes toGithub, which will automatically deploy thesechanges to Heroku.
 4. Static files will now be sent to the AWS S3bucket and accessible to Heroku.
 5. Back in settings.py, add the following code (which will tell the browser that it's okay to cache static files for a long time in order to improve user performance):
+
 <img src="readme-screenshots/deployment-17.jpg"  alt="deployment-17" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
 6. At this point, commit (e.g. commit -m "Added cache control") and push these changes to Github
    
 **Adding media files to S3:**
@@ -361,9 +387,12 @@ In response to these market changes, the GlobALE digital beer store has been est
     - Add Stripe keys to the Config Variables in the Settings section of the Heroku App. These keys can be retrieved from the Stripe dashboard. 
     - To setup a new webhook and generate a new webhook secret key (STRIPE_WH_SECRET): 
         - go to Webhooks in the Stripe dashboard and click "Add End Point'. Add the URL for the Heroku app address followed by ***/checkout/wh*** .
+
         <img src="readme-screenshots/deployment-19.jpg"  alt="deployment-19" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
         - Select 'Receive all Events' and then click 'Add End Point'. 
         - Now copy and paste the new webhook secret key into the Heroku config variable
+
         <img src="readme-screenshots/deployment-18.jpg"  alt="deployment-18" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 <hr>
