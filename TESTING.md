@@ -168,13 +168,13 @@
 
   - If a user clicks the search button without inputting a word in the search bar, a message is displayed to warn them that they have not entered any search criteria, and they are redirected to the All Beers page.
 
-    <img src="readme-screenshots/function-test-2.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-2.jpg"  alt="function-test-2" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 - Responsive design:
     - 'Hamburger' toggle button: For smaller screens, the hamburger toggle button appears and, when clicked, shows/hides navbar links. 
     - The homepage image is repositioned, and slogan becomes smaller and is repositioned. Buy beer button is also repositioned.
 
-    <img src="readme-screenshots/function-test-3.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-3.jpg"  alt="function-test-3" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 ### **Products Page**
 - When a user is on the 'All Beers' / general Products page, they are shown all of the products on the store, which are displayed in alphabetic order.
@@ -184,29 +184,29 @@
 - When a user clicks on the 'category' link in the product card, they are directed to the correct country page.
 - When a user lands on the Products page after having chosen a particularly category or country, they are shown a correct list of products for that particular chosen country or category only. The correct page heading displays for each chosen category or country.
 
-  <img src="readme-screenshots/function-test-4.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> <img src="readme-screenshots/function-test-5.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+  <img src="readme-screenshots/function-test-4.jpg"  alt="function-test-4" style="border-color:lightgrey;border-style:solid;border-width:1px"> <img src="readme-screenshots/function-test-5.jpg"  alt="function-test-5" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 - Responsive design:
   - Four product cards displayed per row for laptop / monitor screens
   - Two product cards displayed per row for tablet screens.
   - Images and texts resized to allow two products to be correctly displayed per row correctly for mobile screens.
 
-    <img src="readme-screenshots/function-test-6.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-6.jpg"  alt="function-test-6" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 ### **Product Detail Page**
 
 - Clicking on a product from the Product page, directs users to the correct Product Detail page, which renders the product image, all relevant product information (name, brewer, description, price, size, ABV), a quantity input and 'Add to Cart' button, as well as a reviews form (if user is logged in) and product reviews (if any).
 - Above the product image, three 'back' links appear allowing users to return to the All Beers section, or the relevant category or country. When clicked, each link returns user to the correct All Beers, category or country page. 
 
-<img src="readme-screenshots/function-test-7.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+<img src="readme-screenshots/function-test-7.jpg"  alt="function-test-7" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 - For users that are not logged in, the reviews form is not displayed, instead a message is displayed prompting them to sign in or register to leave a review. 
 
-<img src="readme-screenshots/function-test-8.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+<img src="readme-screenshots/function-test-8.jpg"  alt="function-test-8" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 - For a product that does not have reviews, a message appears to inform the user that no reviews have been added for the product yet.
 
-  <img src="readme-screenshots/function-test-9.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+  <img src="readme-screenshots/function-test-9.jpg"  alt="function-test-9" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 - Adding product to shopping cart:
   - Quantity Inputs:
@@ -221,16 +221,17 @@
     - A message appears to inform them that the selected quantity of the product has been added to the shopping cart. 
     - Shopping cart icon turns from white to orange to indicate there is something in the Cart, and next to it a number is displayed representing the number of items in the cart.
 
-    <img src="readme-screenshots/function-test-10.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-10.jpg"  alt="function-test-10" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
     - Should a user accidentally delete the quantity from the input bar and then click 'Add to Cart', the quantity will be set to 1 as default and 1 item of the product will be added to the cart. A message appears to inform them that 1 item has been added to their cart.
+    - Should a user try to manually enter a number lower than 1 or higher than 99, they will not be able to proceed and will be prompted with a message to tell them they must choose a quantity between 1 and 99.
 
 - Review Form:
     - Review form displays for logged in users only.
     - When user completes form and clicks submit (submit button correctly changes color when hovered over), their review is immediately added to top of the reviews section (reviews are displayed in date order, most recent first), along with their username and the date of the review.
     - A message appears to tell them that there review for the product was added successfully added.
 
-    <img src="readme-screenshots/function-test-11.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-11.jpg"  alt="function-test-11" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
     - If user  does not choose a rating, a default rating of 3 will be submitted.
     - If user leaves review content text input empty, the review will be submitted with just a rating.
@@ -239,14 +240,14 @@
 
   - On mobile screens, all elements stack on top of each other correctly. 
 
-    <img src="readme-screenshots/function-test-12.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> <img src="readme-screenshots/function-test-13.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-12.jpg"  alt="function-test-12" style="border-color:lightgrey;border-style:solid;border-width:1px"> <img src="readme-screenshots/function-test-13.jpg"  alt="function-test-13" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 ### **Shopping Cart Page**
 
 - Clicking on the Cart link in the navbar directs users to the Shopping Cart page.
 - The Shopping Cart page correctly displays all products added to the Shopping cart; all relevant cash totals are displayed and calculated correctly (Subtotal, Cart Total, Delivery and Order total). 
 
-<img src="readme-screenshots/function-test-14.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+<img src="readme-screenshots/function-test-14.jpg"  alt="function-test-14" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 - Update quantity: 
   - 'Plus' button increases the quantity by one with each click. 
@@ -255,32 +256,92 @@
   - 'Minus' button is disabled when quantity is at 1.
   - Update button: changes color when hovered over. When clicked, the quantity of product is updated and a message appears to tell the user the quantity has been updated successfully.
 
-  <img src="readme-screenshots/function-test-15.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+  <img src="readme-screenshots/function-test-15.jpg"  alt="function-test-15" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
   - Cash totals update correctly after update.
 - Delete product:
   - When hovered over the delete button changes color.
   - When clicked, the product is deleted from cart and a message appears to tell the user the quantity has been deleted successfully.
 
-    <img src="readme-screenshots/function-test-16.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-16.jpg"  alt="function-test-16" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
   - Cash totals update correctly after delete. 
 - Delivery totals and free delivery alert bar:
   - When the cart total is below the free delivery threshold ($50), the free delivery alert bar appears under the grand total. Delivery charge is calculated correctly and is added to the cart total to give the grand total.
 
-    <img src="readme-screenshots/function-test-17.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-17.jpg"  alt="function-test-17" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
   - When the cart total is above the free delivery threshold ($50), the free delivery alert does not appear, 'Delivery' is crossed out and Delivery total is $0. 
 
-    <img src="readme-screenshots/function-test-18.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-18.jpg"  alt="function-test-18" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
     
 - 'Go to Checkout' button: Changes color when hovered over, directs user to the Checkout page.
 - 'Keep Shopping' button: directs user back to the 'All Beers' Product page, items remain in the users cart to complete purchase at a later point.
 - Responsive design: 
   - For mobile screens, the Shopping Cart page layout is reconfigured correctly. 
 
-    <img src="readme-screenshots/function-test-19.jpg"  alt="function-test-1" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    <img src="readme-screenshots/function-test-19.jpg"  alt="function-test-19" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
-### 
+### **Checkout Page**
+
+- When the user clicks on the 'Go to Checkout' button on the Cart page, they are correctly directed to the Checkout page.
+
+- The order summary shown in the Checkout Page matches the contents of the Shopping cart; correctly displays the products, quantity and cash totals from the Shopping Cart page.
+
+- Payment / Order Processing:
+
+  - Once the checkout form details are filled in correctly and the user clicks "Complete Payment" button:
+    - The user is directed to the order confirmation page, which displays the order confirmation number, a correct order summary and delivery details.
+    - A message appears to inform that the order was completed successfully. 
+
+      <img src="readme-screenshots/function-test-20.jpg"  alt="function-test-20" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+    - The payment intent is successfully created on Stripe. 
+    
+      <img src="readme-screenshots/function-test-21.jpg"  alt="function-test-21" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+    
+    - A confirmation email is sent to the customer correctly. 
+    
+      <img src="readme-screenshots/function-test-22.jpg"  alt="function-test-22" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+    - The order is added to the database correctly. 
+
+      <img src="readme-screenshots/function-test-23.jpg"  alt="function-test-23" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+    - The payment amount matches the order Grand Total orignally generated in the Shopping Cart page.
+
+  - If the user closes the page before the order is processed: 
+    - The order will still be created on stripe using a webhook and added to the database. 
+    
+      <img src="readme-screenshots/function-test-24.jpg"  alt="function-test-24" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+    - An order confirmation email is still sent correctly to the customer.
+
+- Handling form errors:
+
+  - If a user tries to Complete Payment without completing all of the required form fields, they will not be able to proceed and prompted to fill in the necessary fields. 
+
+    <img src="readme-screenshots/function-test-25.jpg"  alt="function-test-25" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - If a user enters incorrect details, they will not be able to proceed with the payment and a message will inform them of the error. 
+
+    <img src="readme-screenshots/function-test-26.jpg"  alt="function-test-26" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- Form details for logged in users:
+
+  - If the logged in user checks the "Save this delivery information to my profile" box, the delivery details are successfully saved in the user's User Profile.
+  - If the user has previously saved their delivery information, the form is autofilled correctly with these previously saved details. 
+
+- Responsive design:
+  
+  - On mobile screens, all elements correctly stack on top of each other for both the Checkout page and Order Confirmation page.
+
+    <img src="readme-screenshots/function-test-27.jpg"  alt="function-test-27" style="border-color:lightgrey;border-style:solid;border-width:1px"> <img src="readme-screenshots/function-test-28.jpg"  alt="function-test-28" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+
+
+
+
+
 
       
