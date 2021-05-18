@@ -48,10 +48,12 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details """
+    """ A view to show individual product details, post reviews
+    and calculate average rating"""
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = product.reviews.all().order_by('-date')
+    average_rating = None
 
     if request.method == 'POST' and request.user.is_authenticated:
         rating = int(request.POST.get('rating', 3))
@@ -66,9 +68,19 @@ def product_detail(request, product_id):
 
         return redirect(redirect_url)
 
+    if reviews:
+        ratings = []
+        for review in reviews:
+            ratings.append(review.rating)
+
+        average_rating = sum(ratings)/len(ratings)
+    else:
+        average_rating = None
+
     context = {
         'product': product,
-        'reviews': reviews
+        'reviews': reviews,
+        'average_rating': average_rating
     }
 
     return render(request, 'products/product_detail.html', context)
