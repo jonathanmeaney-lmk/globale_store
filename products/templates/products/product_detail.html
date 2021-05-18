@@ -41,7 +41,7 @@
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="product-details-container mb-2 mt-md-3">
                     <h2 class="mb-3 headings">{{ product.name|title }}</h2>
-                    <p class="text-muted body-text mb-0"><em>{{ product.brewer }}</em></p>
+                    <p class="text-muted body-text mb-0"><em>{{ product.brewer }} ({{ product.country.friendly_name }})</em></p>
                     <hr class="my-1">
                     <p class="body-text mb-2 product-description">{{ product.description }}</p>
                     {% if average_rating %}

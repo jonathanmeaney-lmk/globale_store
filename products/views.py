@@ -34,7 +34,8 @@ def all_products(request):
                                "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
 
     context = {
@@ -62,9 +63,11 @@ def product_detail(request, product_id):
 
         redirect_url = request.POST.get('redirect_url')
 
-        ProductReview.objects.create(product=product, user=user, content=content, rating=rating)
+        ProductReview.objects.create(
+            product=product, user=user, content=content, rating=rating)
 
-        messages.success(request, f'Your review for {product} has been submitted. Thanks for the feedback!')
+        messages.success(
+            request, f'Your review for {product} has been submitted. Thanks for the feedback!')
 
         return redirect(redirect_url)
 
@@ -100,7 +103,8 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
 
@@ -127,7 +131,8 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to update product. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')

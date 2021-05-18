@@ -195,7 +195,7 @@
 
 ### **Product Detail Page**
 
-- Clicking on a product from the Product page, directs users to the correct Product Detail page, which renders the product image, all relevant product information (name, brewer, description, price, size, ABV), a quantity input and 'Add to Cart' button, as well as a reviews form (if user is logged in) and product reviews (if any).
+- Clicking on a product from the Product page, directs users to the correct Product Detail page, which renders the product image, all relevant product information (name, brewer, description, price, size, ABV), a quantity input and 'Add to Cart' button, as well as a reviews form (if user is logged in), and product reviews and average(if any).
 - Above the product image, three 'back' links appear allowing users to return to the All Beers section, or the relevant category or country. When clicked, each link returns user to the correct All Beers, category or country page. 
 
 <img src="readme-screenshots/function-test-7.jpg"  alt="function-test-7" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
@@ -207,6 +207,10 @@
 - For a product that does not have reviews, a message appears to inform the user that no reviews have been added for the product yet.
 
   <img src="readme-screenshots/function-test-9.jpg"  alt="function-test-9" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- For a product that has reviews, the reviews are displayed correctly in date order and the average rating is calculated correctly based on the sum of all ratings. 
+
+  <img src="readme-screenshots/function-test-38.jpg"  alt="function-test-38" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 - Adding product to shopping cart:
   - Quantity Inputs:
@@ -230,10 +234,14 @@
     - Review form displays for logged in users only.
     - When user completes form and clicks submit (submit button correctly changes color when hovered over), their review is immediately added to top of the reviews section (reviews are displayed in date order, most recent first), along with their username and the date of the review.
     - A message appears to tell them that there review for the product was added successfully added.
+    - The average rating is updated correctly based on the sum of all ratings and taking into account the newly added rating.
 
-    <img src="readme-screenshots/function-test-11.jpg"  alt="function-test-11" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+      <img src="readme-screenshots/function-test-11.jpg"  alt="function-test-11" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
-    - If user  does not choose a rating, a default rating of 3 will be submitted.
+    - If the user tries to submit the review without selecting a rating, they will be not be able to proceed and will be prompted to choose a rating.
+
+      <img src="readme-screenshots/function-test-39.jpg"  alt="function-test-39" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
     - If user leaves review content text input empty, the review will be submitted with just a rating.
 
 - Responsive design: 
