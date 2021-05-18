@@ -117,7 +117,7 @@
                                 <form method="POST" action="{% url 'product_detail' product.id %}">
                                     {% csrf_token %}
                                     <select class="form-select rounded body-text p-2" name="rating" id="review-rating" aria-label="select review" required>
-                                        <option selected disabled>Choose Rating</option>
+                                        <option value="" selected disabled>Choose Rating</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
