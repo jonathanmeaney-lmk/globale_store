@@ -338,9 +338,68 @@
 
     <img src="readme-screenshots/function-test-27.jpg"  alt="function-test-27" style="border-color:lightgrey;border-style:solid;border-width:1px"> <img src="readme-screenshots/function-test-28.jpg"  alt="function-test-28" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
+### **My Profile Page**
+
+- Clicking on the My Profile link from the Profile dropdown menu correctly directs authenticated users to the My Profile Page 
+- A blank form is generated for users who have not previously saved delivery information.
+- For users who have previously saved their delivery information the form is auto-filled with the previously saved details.
+- When a user edits their details and clicks 'Update Information', the details are correctly updated and a message appears to inform the user that their information has been updated successfully. 
+
+  <img src="readme-screenshots/function-test-29.jpg"  alt="function-test-29" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+-  The user's information is correctly updated on the database.
+- Authentication:
+  - Only registered, logged in users can access the My Profile page (the link is correctly hidden from non-authenticated users).
+  - If a non-authenticated user tries to access the My Profile page by typing the correct URL into the web browser, they are correctly redirected to the login page.
 
 
+### **Order History Page**
 
+- Clicking on the Orders link from the Profile dropdown menu correctly directs authenticated users to the Order History page
+
+- A list of the user's previous orders is generated correctly. Clicking the 'See Details' shows the full order details. 
+
+  <img src="readme-screenshots/function-test-30.jpg"  alt="function-test-30" style="border-color:lightgrey;border-style:solid;border-width:1px"> <img src="readme-screenshots/function-test-31.jpg"  alt="function-test-31" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- File an Issue: 
+
+  - Clicking the 'File Issue' button correctly directs the user to the File Issue form submission page.
+
+    <img src="readme-screenshots/function-test-32.jpg"  alt="function-test-32" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - Once the user fills in the form and clicks 'Submit':
+
+    - The user is redirected to the Order History page and message appears to inform that their issue has been logged successfully.
+
+    - A red message appears on the order to indicate that an issue has been logged for said order. 
+
+      <img src="readme-screenshots/function-test-33.jpg"  alt="function-test-33" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+    - The order issue is successfully logged in the database.
+
+      <img src="readme-screenshots/function-test-34.jpg"  alt="function-test-34" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+    - Once admin has dealt with the issue and changed "Issue Resovled" to "Yes", a green message appears on the order in the user's Order History page to indicate the issue has been resovled. 
+
+      <img src="readme-screenshots/function-test-35.jpg"  alt="function-test-35" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- Authentication:
+   - Only registered, logged in users can access the Order History page (the link is correctly hidden from non-authenticated users).
+  - If a non-authenticated user tries to access the Order History page by typing the correct URL into the web browser, they are correctly redirected to the login page.
+  
+- Responsive design:
+
+  - The layout of the Order History page is reconfigured for mobile screens.
+
+    <img src="readme-screenshots/function-test-36.jpg"  alt="function-test-36" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - When clicking the 'See Details' button on mobile screens, the user is directed to the order confirmation and is informed that this a a past order confirmation.   
+
+    <img src="readme-screenshots/function-test-37.jpg"  alt="function-test-37" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+    - The user is correctly directed back to the Order Histroy page when they click the "Back to Order History" button on this Previous Order Confirmation page.
+
+- Elements of the Submit Order Issue page correctly stack on top of each other on small screens.
 
 
 
