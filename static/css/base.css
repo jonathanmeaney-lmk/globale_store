@@ -30,28 +30,6 @@ body {
 
 }
 
-.body-text {
-    font-family: 'Noto Sans', sans-serif;
-    color: #133965;
-}
-
-.card:hover {
-    border: #133965b9 1px solid !important
-}
-
-.form-select {
-    font-size: 12px;
-    border: #ced4da 1px solid
-}
-
-.return-links:hover {       
-    color: #133965;
-}
-
-.fieldset-border {
-    border: #133965 1px solid
-}
-
 /* .................................... Navbar */
 
 .navbar {
@@ -67,18 +45,18 @@ body {
 
 #ale-brand {
     text-transform: uppercase;
-    color: #fcb500
+    color: #fcb500;
 }
 
 .text-warning {
-    color:#fcb500
+    color:#fcb500;
 }
 
 .navbar-dark .navbar-nav .nav-link {
     font-family: 'Antonio', sans-serif;
     font-weight: 300;
     font-size: 1.25rem;
-    color: white
+    color: white;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
@@ -92,7 +70,7 @@ body {
 }
 
 .navbar-dark .navbar-toggler {
-    border: none
+    border: none;
 }
 
 .cart-number {
@@ -108,7 +86,7 @@ body {
 .homepage-image-container {
     background: url('/media/homepage-image.jpg') no-repeat center center;
     height: 100vh;
-    min-width: 100;
+    min-width: 100%;
     background-size: cover;
 }
 
@@ -116,11 +94,11 @@ body {
     font-family: 'Antonio', sans-serif;
     font-weight: 600;
     color: white;
-    text-shadow: 2px 2px 4px rgb(116, 116, 116)
+    text-shadow: 2px 2px 4px rgb(116, 116, 116);
 }
 
 
-/* ........................................ Buttons  */
+/* ........................................ Buttons & Links */
 
 .shop-now-button,
 .btn-brand-blue {
@@ -141,7 +119,7 @@ body {
 .shop-now-button:focus,
 .btn-brand-blue:hover {
     background-color: #fcb500;
-    color: #133965
+    color: #133965;
 }
 
 .decrement-qty,
@@ -156,31 +134,37 @@ body {
 
 .update-link:hover {
     background-color: #fcb500;
-    color: #133965
+    color: #133965;
 }
 
-
-
-
-
-
-
-
-.reviews {
-    padding: 15px;
-    border-radius: 5px
+.return-links:hover {       
+    color: #133965;
 }
 
+/* ........................................ Products Page */
 
 .card-img-top {
     height: 300px;
     width: 300px;
 }
 
+.card:hover {
+    border: #133965b9 1px solid !important
+}
+
+/* ........................................ Product Detail Page */
+
+.reviews {
+    padding: 15px;
+    border-radius: 5px;
+}
+
 .product-description {
     font-size: 14px;
-    color: #133965
+    color: #133965;
 }
+
+/* ........................................ Image Sizes */
 
 .cart-image {
     height: 130px;
@@ -192,8 +176,10 @@ body {
     width: 70px;
 }
 
+/* ........................................ Messages */
+
 .free-delivery-warning {
-    font-size: 14px
+    font-size: 14px;
 }
 
 .message-container {
@@ -203,7 +189,20 @@ body {
     z-index: 99999999999;
 }
 
-/* Allauth form formatting */
+
+/* .................................... forms */
+
+.form-select {
+    font-size: 12px;
+    border: #ced4da 1px solid;
+}
+
+.fieldset-border {
+    border: #133965 1px solid;
+}
+
+
+/*............................. Allauth form formatting */
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
@@ -269,9 +268,11 @@ body {
 	color: #17a2b8; /* text-info */
 }
 
-
+/*.................................................. Media Queries */
 
 @media (max-width: 575px) {
+
+    /* reformat homepage for mobile screens */
 
     #homepage-slogan {
         font-size: 2.5rem;
@@ -294,13 +295,19 @@ body {
        
     }
 
+    /* reformat products page for mobile screens */
+
+    .page-headings {
+        font-size: 2.5rem;
+    }
+
     .card-img-top {
         height: 180px;
         width: 300px;
     }
 
     .product-name-heading {
-        font-size: 1rem
+        font-size: 1rem;
 
     }
 

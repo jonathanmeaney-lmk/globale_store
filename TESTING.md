@@ -358,7 +358,7 @@
 -  The user's information is correctly updated on the database.
 - Authentication:
   - Only registered, logged in users can access the My Profile page (the link is correctly hidden from non-authenticated users).
-  - If a non-authenticated user tries to access the My Profile page by typing the correct URL into the web browser, they are correctly redirected to the login page.
+  - If a non-authenticated user tries to access the My Profile page by typing the URL into the web browser, they are correctly redirected to the login page.
 
 
 ### **Order History Page**
@@ -393,7 +393,7 @@
 
 - Authentication:
    - Only registered, logged in users can access the Order History page (the link is correctly hidden from non-authenticated users).
-  - If a non-authenticated user tries to access the Order History page by typing the correct URL into the web browser, they are correctly redirected to the login page.
+  - If a non-authenticated user tries to access the Order History page by typing the URL into the web browser, they are correctly redirected to the login page.
   
 - Responsive design:
 
@@ -410,5 +410,37 @@
 - Elements of the Submit Order Issue page correctly stack on top of each other on small screens.
 
 
+### **Product Management Page (Add a Product)**
 
-      
+- Clicking on the Product Management link from the Profile drop-down menu correctly directs superusers to the Add a Product page.
+- Once the user fills in the form correctly and presses 'Add a Product':
+  - The product is added to the database correctly.
+  - The user is redirected to the Product Detail page for the new product.
+  - A message appears to tell them that the product has been added successfully. 
+
+    <img src="readme-screenshots/function-test-41.jpg"  alt="function-test-41" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - If user adds a product without an image, a generic image is automatically generated. 
+
+    <img src="readme-screenshots/function-test-42.jpg"  alt="function-test-42" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- Handling form errors:
+  - If the user tries to submit the form without completing a required field, they are not be able to proceed and will be prompted to fill in the field in question. 
+
+    <img src="readme-screenshots/function-test-43.jpg"  alt="function-test-43" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - If user completes a field with invalid values, they are not be able proceed and a message informs them of the error. 
+
+    <img src="readme-screenshots/function-test-44.jpg"  alt="function-test-44" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- Authentication:
+  - The Product Management link only appears for logged in superusers.
+  - If a non-logged in user tries to access the Product Management page by typing the URL into the web browser, they are correctly redirected to the login page.
+  - If a logged-in registered user tries to access the Product Management page by typing the URL into the web browser, they are correctly redirected to the homepage; a message appears to inform them that they do not have permission to access this part of the site. 
+
+    <img src="readme-screenshots/function-test-40.jpg"  alt="function-test-40" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+
+<hr>
+
+## **USER STORIES TESTING**

@@ -1,7 +1,5 @@
-.order-history {
-    max-height: 540px; /* height of profile form + submit button */
-    overflow-y: auto;
-}
+/* ................................................... Profile Form */
+
 
 #profile-update-form .form-control {
     color: black;
@@ -59,6 +57,12 @@ profile-form-input:focus {
     color: #aab7c4;
 }
 
+/* ................................................... Order History */
+
+.order-history {
+    max-height: 540px; /* height of profile form + submit button */
+    overflow-y: auto;
+}
 
 .order-container {
     border: 1px solid #133965;
@@ -91,6 +95,8 @@ profile-form-input:focus {
 #order_issue_select {
     font-size: 16px;
 }
+
+/* make font-size smaller for tablet screens for Order Details collapsible section in Order History*/
 
 @media (max-width: 768px) {
 
