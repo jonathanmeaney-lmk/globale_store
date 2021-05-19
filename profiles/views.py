@@ -73,7 +73,8 @@ def order_issue(request, order_number):
 
         messages.success(
             request,
-            f'Your issue for Order: {order_number} has been logged. We will be in touch shortly.')
+            f'Your issue for Order: {order_number} has been logged. \
+                We will be in touch shortly.')
 
         return redirect(reverse('view_orders'))
 
