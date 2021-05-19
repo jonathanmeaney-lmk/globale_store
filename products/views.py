@@ -67,7 +67,8 @@ def product_detail(request, product_id):
             product=product, user=user, content=content, rating=rating)
 
         messages.success(
-            request, f'Your review for {product} has been submitted. Thanks for the feedback!')
+            request,
+            f'Review for {product} submitted. Thanks for the feedback!')
 
         return redirect(redirect_url)
 
@@ -76,7 +77,7 @@ def product_detail(request, product_id):
         for review in reviews:
             ratings.append(review.rating)
 
-        average_rating = sum(ratings)/len(ratings)
+        average_rating = sum(ratings) / len(ratings)
     else:
         average_rating = None
 
@@ -104,7 +105,8 @@ def add_product(request):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to add product. Please ensure the form is valid.')
+                request,
+                'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
 
@@ -132,7 +134,8 @@ def edit_product(request, product_id):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to update product. Please ensure the form is valid.')
+                request,
+                'Failed to update product. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')

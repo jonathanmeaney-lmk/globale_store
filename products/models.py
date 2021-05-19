@@ -38,14 +38,34 @@ class Country(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
-    country = models.ForeignKey('Country', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(
+        'Category',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL)
+    country = models.ForeignKey(
+        'Country',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL)
     sku = models.CharField(max_length=32, null=False, editable=False)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MaxValueValidator(100, message=None), MinValueValidator(1, message=None)])
-    size = models.PositiveIntegerField(validators=[MaxValueValidator(1000, message=None), MinValueValidator(100, message=None)])
-    abv = models.DecimalField(max_digits=6, decimal_places=1, validators=[MaxValueValidator(50, message=None), MinValueValidator(0, message=None)])
+    price = models.DecimalField(
+        max_digits=6, decimal_places=2, validators=[
+            MaxValueValidator(
+                100, message=None), MinValueValidator(
+                1, message=None)])
+    size = models.PositiveIntegerField(
+        validators=[
+            MaxValueValidator(
+                1000, message=None), MinValueValidator(
+                100, message=None)])
+    abv = models.DecimalField(
+        max_digits=6, decimal_places=1, validators=[
+            MaxValueValidator(
+                50, message=None), MinValueValidator(
+                0, message=None)])
     brewer = models.CharField(max_length=254, null=False, blank=False)
     image = models.ImageField(null=True, blank=True)
 
@@ -56,7 +76,7 @@ class Product(models.Model):
         https://stackoverflow.com/questions/2673385/how-to-generate-random-number-with-the-specific-length-in-python
         """
         range_start = 10**9
-        range_end = (10**10)-1
+        range_end = (10**10) - 1
         x = randint(range_start, range_end)
         sku = f"gb{x}"
         return sku
@@ -76,8 +96,14 @@ class Product(models.Model):
 
 
 class ProductReview(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name='reviews')
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='reviews')
     rating = models.IntegerField()
     content = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)

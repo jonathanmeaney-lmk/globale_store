@@ -20,7 +20,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all().order_by('-date')
@@ -63,9 +64,16 @@ def order_issue(request, order_number):
         user = get_object_or_404(User, username=request.user)
         email = request.POST.get('email')
 
-        OrderIssue.objects.create(order=order, issue_type=issue_type, user=user, description=description, email=email)
+        OrderIssue.objects.create(
+            order=order,
+            issue_type=issue_type,
+            user=user,
+            description=description,
+            email=email)
 
-        messages.success(request, f'Your issue for Order: {order_number} has been logged. We will be in touch shortly.')
+        messages.success(
+            request,
+            f'Your issue for Order: {order_number} has been logged. We will be in touch shortly.')
 
         return redirect(reverse('view_orders'))
 

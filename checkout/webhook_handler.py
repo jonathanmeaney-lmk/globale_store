@@ -122,13 +122,13 @@ class StripeWH_Handler:
                     stripe_pid=pid
                 )
                 for item_id, quantity in json.loads(cart).items():
-                        product = Product.objects.get(id=item_id)
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=quantity,
-                        )
-                        order_line_item.save()
+                    product = Product.objects.get(id=item_id)
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=quantity,
+                    )
+                    order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()
