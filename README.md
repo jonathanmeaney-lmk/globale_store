@@ -148,15 +148,32 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 ### **User Interface Design**
  - The intial wireframes for the project were created using [Balsamiq](https://balsamiq.com/) and can be viewed here: 
-   - Medium/Large screens 
-   - Mobile screens
+   - [Medium-Large Screens](readme-screenshots/wireframes-large.pdf); 
+   - [Mobile Screens](readme-screenshots/wireframes-mobile.pdf)
+
 
 ### **Database Design**
 - A relational database model was used for the database design:
    - The database used in development is sqlite3 (as provided by Django).
    - The database used in production is PostGres (as provided by Heroku). More info on setting up the Postgres database can be found the Deployment section below.
    
-<img src="readme-screenshots/database-schema.jpg"  alt="database schema" style="border-color:lightgrey;border-style:solid;border-width:1px">
+   <img src="readme-screenshots/database-schema.jpg"  alt="database schema" style="border-color:lightgrey;border-style:solid;border-width:1px">
+
+
+- Database Structure: The database is divided under three main models: Product, User and Order
+  - Product related models and relationship:
+    - Product-Category (one-to-many): a Product can be related to one Category, but a Category can be related to many products.
+    - Product-Country (one-to-many): a Product can be related to one Country , but a Country  can be related to many products.
+    - Product-Product Review (many-to-one): a Product can be related to many Product Reviews; but a Product Review can only be related to one Product. 
+    - Product-Order Line Item (many-to-one): a Product can be related to many Order Line Items, but an Order Line Item can only be related to one Product. 
+  - Order related models and relationships:
+    - Order-Order Line Item (many-to-one): an Order can be related to many Order Line Items, but an Order Line Item can only be related to one Order. 
+    - Order-Order Issue (many-to-one): an Order can be related to many Order Issues, but an Order Issue can only be related to one Order. 
+    - Order-User Profile (one-to-many): an Order can be related to one User Profile, but a User Profile can be related to Orders.
+  - User related models and relationships:
+    - User-User Profile (one-to-one): a User can be related to one User Profile; while a User Profile can be related to one User.
+    - User-Order (many-to-one): a User can be related to many Orders, but an Order can only be related to one User. 
+    - User-Product Review (many-to-one): a User can be related to many Product Reviews, but a Product Review can only be related to one User.  
 
 <hr>
 
@@ -406,6 +423,7 @@ Contents:
  - User Stories Testing
  - Functionality Testing
  - Code Validation
+ - Known Bugs
 
 <hr>
 
@@ -433,4 +451,6 @@ Due to time constraints, not all desired features have been included in this MVP
 
       - This map would contain 'Pins' for each beer (containing a small image of the beer) and would be located where the beer is brewed. Clicking on the pin, would bring up info on the beer or direct the user to the product detail page. This would a cool, fun feature to have but was not viable in time allowed for this MVP version.
 
-   - The developers also plan to improve the Product Management interface, but that was not considered under the time constraints for this MVP version. 
+   - The developers also plan to improve the Product Management interface, but that was not considered essential under the time constraints for this MVP version. 
+
+   - A footer containing social media links and a contact us section (as seen in wireframes) will be included in future versions but was not considered essential under the time constraints for this MVP version. 
