@@ -575,3 +575,44 @@
 <hr>
 
 ## **VALIDATION**
+
+
+W3C Markup Validator, W3C CSS Validator, PEP Validator and JSHint were used to validate the code in the project to ensure there were no errors.
+
+- [W3C Markup Validator](https://validator.w3.org/)
+
+    - No errors were detected in any of the HTML code after finally running the code through the validator.
+
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+    - No errors in the CSS code were detected after finally running the CSS code through the validator.
+
+- [JSHint](https://jshint.com/)
+
+    - No errors were detected in the Javascript/JQuery code after finally running the code through JSHint.
+
+
+- [PEP8 Code Checker](http://pep8online.com/)
+
+    - No PEP8 errors were detected in the Python code after finally running the code through the PEP8 code Checker
+
+<hr>
+
+## **KNOWN BUGS**
+
+- On the Firefox browser, in the product quantity inputs on the Product Detail page and Products page, the default up/down arrows are visible but do not function. However the customized plus/minus buttons work as intended so it is not a major issue.
+
+  <img src="readme-screenshots/function-test-64.jpg"  alt="function-test-64" style="border-color:lightgrey;border-style:solid;border-width:1px">
+
+
+### **Dupliate Orders bug:**
+  
+  - On sporadic occasions, processed orders are duplicated in the system. The reason for this is that the webhook on Stripe creates the order before allowing the regular process to handle it, and then the regular process is completed. The reason for this is still unknown but solving the webhook issue was not possible within the time contraints for the MVP version.
+  - It seems the webhooks for both development and deployment versions are linked, as a webhook is sent to both versions regardless of which version the order was processed in. 
+  - Having consulted with tutors and my colleagues on Slack, I tried several solutions, such as increasing the while loop attempt in the webhook handler and disabling the webhook endpoint for the development version of the project. However the problem still persists, but only happend very occasionally.
+  - Temporary solution for this MVP version: 
+    - In order to improve UX, I have disabled the webhook posting the user's profile to the order form data when the webhook handles the order. This means the order created by the webhook will not appear in the user's order history, which would be extremely poor UX. Only the order that was created by the regular process will be added to the user's order history, and not the order created by the webhook.
+    - As such, the duplicated orders will only appear in the Django admin database and the admin user can easily spot them as they will have the exact same amount and same timestamp. 
+    - The only downfall of having disabled the webhook posting the user's profile to the order form data when the webhook handles the order:
+      - In the rare case that the webhook handler solely creates the order (for example, when a user closes the checkout page before the order process is completed), it means that this order will not be posted to the logged in user's order history.
+      - Although the user will still receive the confirmation email, so they will not be left in doubt as to whether the order has been completed. 
