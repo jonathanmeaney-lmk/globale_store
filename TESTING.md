@@ -429,18 +429,50 @@
 
     <img src="readme-screenshots/function-test-43.jpg"  alt="function-test-43" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
-  - If user completes a field with invalid values, they are not be able proceed and a message informs them of the error. 
+  - If the user completes a field with invalid values, they are not be able proceed and a message informs them of the error. 
 
     <img src="readme-screenshots/function-test-44.jpg"  alt="function-test-44" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
 - Authentication:
   - The Product Management link only appears for logged in superusers.
   - If a non-logged in user tries to access the Product Management page by typing the URL into the web browser, they are correctly redirected to the login page.
-  - If a logged-in registered user tries to access the Product Management page by typing the URL into the web browser, they are correctly redirected to the homepage; a message appears to inform them that they do not have permission to access this part of the site. 
+  - If a logged-in registered user who does not have superuser status tries to access the Product Management page by typing the URL into the web browser, they are correctly redirected to the homepage; a message appears to inform them that they do not have permission to access this part of the site. 
 
     <img src="readme-screenshots/function-test-40.jpg"  alt="function-test-40" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
+### **Edit a Product**
+
+- When a superuser clicks on the Edit link in the product card on the Product page, or in the Products Details page, they are correctly directed to the Edit Product page.
+- The Edit Product form appears, with all the forms fields correctly pre-filled with the product's current details. 
+- Having edited the desired field(s) and clicked "Update Product":
+  - The product is updated to the database correctly.
+  - The user is redirected to the Product Detail page for the updated product where they can sees the changes applied.
+  - A message appears to tell them that the product has been added successfully. 
+
+    <img src="readme-screenshots/function-test-45.jpg"  alt="function-test-45" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- Handling form errors:
+  - If the user tries to submit the form without completing a required field, they are not be able to proceed and will be prompted to fill in the field in question. 
+  - If the user completes a field with invalid values, they are not be able proceed and a message informs them of the error. 
+- Authentication:
+  - The Edit link only appears for logged in superusers.
+  - If a non-logged in user tries to access the Edit page by typing the URL into the web browser, they are correctly redirected to the login page.
+  - If a logged-in registered user who does not have superuser status tries to access the Edit page by typing the URL into the web browser, they are correctly redirected to the homepage; a message appears to inform them that they do not have permission to access this part of the site. 
+
+### **Delete a Product**
+
+- When a superuser clicks on the Delete link in the product card on the Product page, or in the Products Details page:
+  - The product is deleted from the database.
+  - A message appears to inform the user that the product has been deleted successfully.
+  - The product no longer appears on the Products page.
+
+    <img src="readme-screenshots/function-test-46.jpg"  alt="function-test-46" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- Authentication:
+  - The Delete link only appears for logged in superusers.
+- Some recognized downfalls:
+  - The developer is aware that to improve UX, the delete functionality could be improved by giving users a chance to confirm the delete after clicking 'Delete' the first time. However due to time constraints, this functionality has not been included in the MVP version and will be added in later versions.
 
 <hr>
 
-## **VALIDATION*
+## **VALIDATION**
