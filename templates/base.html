@@ -29,7 +29,7 @@
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
-    <title>GlobAle Beer Store {% block extra_title %}{% endblock %}</title>
+  <title>GlobAle Beer Store {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
     <header class="fixed-top">
@@ -37,64 +37,81 @@
         <a class="navbar-brand ml-lg-3" href="{% url 'home' %}">Glob<span id="ale-brand">Ale</span></a>
 
         <!-- Shopping Cart Appears next to Navbar toggle on sm-md screens -->
-        <li class="nav-item d-inline d-lg-none ml-auto">
+      
+        <span class="nav-item d-inline d-lg-none ml-auto">
           <a class="nav-link text-white {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
             <i class="fas fa-shopping-cart nav-icons-lg">
             </i>{% if product_count != 0 %}  
             <small class="cart-number">{{ product_count }}</small>{% endif %}
           </a>
-        </li>
+        </span>
 
         <!-- Navbar Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
+        <!-- All Beers link -->
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-lg-3 text-dark">
             <li class="nav-item mx-lg-2">
               <a class="nav-link" href="{% url 'products' %}">All Beers</a>
             </li>
+            <!-- Category Dropdown Menu -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-toggle="dropdown" aria-expanded="false">
                 Categories
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
                 {% for category in categories %}
                   <li><a class="dropdown-item" href="{% url 'products' %}?category={{ category.name }}">{{ category.friendly_name }}</a></li>
                 {% endfor %}
               </ul>
             </li>
+            <!-- Country Dropdown Menu -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCountries" role="button" data-toggle="dropdown" aria-expanded="false">
                 Countries
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownCountries">
                 {% for country in countries %}
                   <li><a class="dropdown-item" href="{% url 'products' %}?country={{ country.name }}">{{ country.friendly_name }}</a></li>
                 {% endfor %}
               </ul>
             </li>
           </ul>
+          <!-- Profile Dropdown Menu -->
           <ul class="navbar-nav mt-2 mt-lg-0 mr-lg-4 text-dark">
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-expanded="false">
                 <i class="fas fa-user-circle nav-icons-lg"></i><span class="d-inline d-lg-none"> Profile</span>
               </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
                   {% if request.user.is_authenticated %}
                       {% if request.user.is_superuser %}
-                      <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                      <li>
+                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                      </li>
                       {% endif %}
-                      <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                      <a href="{% url 'view_orders' %}" class="dropdown-item">Orders</a>
-                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                      <li>
+                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'view_orders' %}" class="dropdown-item">Orders</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
+                      </li>
                   {% else %}
-                      <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                      <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                      <li>
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                      </li>
+                      <li>
+                      <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
+                      </li>
                   {% endif %}
                 </ul>
             </li>
+            <!-- Shopping Cart for Large Screens -->
             <li class="nav-item mx-2 d-none d-lg-inline">
               <a class="nav-link {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
                 <i class="fas fa-shopping-cart nav-icons-lg"></i>
@@ -105,6 +122,7 @@
             </li>
           </ul>
           
+          <!-- Search Bar -->
           <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'products' %}">
             <div class="input-group w-100">
               <input class="form-control" type="text" name="q" placeholder="Search">

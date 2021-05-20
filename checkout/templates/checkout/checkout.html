@@ -21,6 +21,7 @@
             </div>
         </div>
         <div class="row">
+            <!-- Checkout Form -->
             <div class="col-12 col-md-7">
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
@@ -82,6 +83,7 @@
                 </form>
             </div>
             <div class="col-12 col-md-5">
+                <!-- Order Summary -->
                 <fieldset class="rounded px-3 mb-3 fieldset-border">
                     <legend class="fieldset-label headings px-2 w-auto">Order Summary</legend>
                     <div class="order-history table-responsive">

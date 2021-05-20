@@ -20,6 +20,7 @@
             <h2 class="text-center headings">Order History</h2>
         </div>
     </div>
+    <!-- Order Panel for Each Past Order -->
     <div class="row">
         {% if orders %}
         <div class="d-none d-md-block"></div>
@@ -40,6 +41,9 @@
                             <p class="mb-1"><small class="headings mb-0">Grand Total</small></p>
                             <p>${{ order.grand_total }}</p>
                         </div>
+                        <!-- 'See Details' Buttons: for mobile screens 
+                            button directs users to the past order confirmation page;
+                            for md-lg screen, button toggles hide/reveal details -->
                         <div class="col-6 col-md-2 text-center text-md-left">
                             <a class="d-none d-md-block btn btn-sm btn-details mt-3 w-75" data-toggle="collapse" href="#collapseDetails{{ order.id }}" role="button" aria-expanded="false" aria-controls="collapseDetails">
                                 See Details
