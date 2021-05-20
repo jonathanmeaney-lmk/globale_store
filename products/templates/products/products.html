@@ -44,8 +44,10 @@
                         {% endif %}
                         <div class="card-body pb-0 mb-0">
                             <h3 class="headings mb-1 product-name-heading">{{ product.name|title }}</h3>
-                            <a class="mb-0 text-muted body-text product-body-text" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> <br class="mb-0">
-                            <a class="mb-1 text-muted body-text product-body-text d-none d-md-block" href="{% url 'products' %}?country={{ product.country.name }}"><i class="fas fa-globe-europe"></i> {{ product.country.friendly_name }}</a>
+                            <a class="mb-0 text-muted body-text product-body-text" 
+                                href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> <br class="mb-0">
+                            <a class="mb-1 text-muted body-text product-body-text d-none d-md-block" 
+                                href="{% url 'products' %}?country={{ product.country.name }}"><i class="fas fa-globe-europe"></i> {{ product.country.friendly_name }}</a>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-right mb-">
                             <div class="row">

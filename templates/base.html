@@ -10,7 +10,8 @@
     {% endblock %}
 
     {% block core_css %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -39,7 +40,8 @@
         <!-- Shopping Cart Appears next to Navbar toggle on sm-md screens -->
       
         <span class="nav-item d-inline d-lg-none ml-auto">
-          <a class="nav-link text-white {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
+          <a class="nav-link text-white {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" 
+              href="{% url 'view_cart' %}" aria-label="shopping cart">
             <i class="fas fa-shopping-cart nav-icons-lg">
             </i>{% if product_count != 0 %}  
             <small class="cart-number">{{ product_count }}</small>{% endif %}
@@ -47,7 +49,8 @@
         </span>
 
         <!-- Navbar Toggler -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" 
+            aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- All Beers link -->
@@ -58,7 +61,8 @@
             </li>
             <!-- Category Dropdown Menu -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-toggle="dropdown" 
+                  aria-expanded="false" aria-label="categories menu">
                 Categories
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
@@ -69,7 +73,8 @@
             </li>
             <!-- Country Dropdown Menu -->
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCountries" role="button" data-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCountries" role="button" data-toggle="dropdown" 
+                  aria-expanded="false" aria-label="countries menu">
                 Countries
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownCountries">
@@ -82,7 +87,8 @@
           <!-- Profile Dropdown Menu -->
           <ul class="navbar-nav mt-2 mt-lg-0 mr-lg-4 text-dark">
             <li class="nav-item dropdown">
-              <a class="nav-link" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" 
+                  aria-expanded="false" aria-label="profile menu">
                 <i class="fas fa-user-circle nav-icons-lg"></i><span class="d-inline d-lg-none"> Profile</span>
               </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
@@ -113,7 +119,8 @@
             </li>
             <!-- Shopping Cart for Large Screens -->
             <li class="nav-item mx-2 d-none d-lg-inline">
-              <a class="nav-link {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" href="{% url 'view_cart' %}">
+              <a class="nav-link {% if product_count != 0 %}text-warning font-weight-bold{% endif %}" 
+                  href="{% url 'view_cart' %}" aria-label="shopping cart">
                 <i class="fas fa-shopping-cart nav-icons-lg"></i>
                 {% if product_count != 0 %}
                 <small class="cart-number">{{ product_count }}</small>
@@ -127,7 +134,7 @@
             <div class="input-group w-100">
               <input class="form-control" type="text" name="q" placeholder="Search">
               <div class="input-group-append">
-                <button class="form-control btn border search-btn" type="submit">
+                <button class="form-control btn border search-btn" aria-label="search" type="submit">
                   <span class="icon">
                     <i class="fas fa-search"></i>
                   </span>

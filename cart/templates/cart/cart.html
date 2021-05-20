@@ -68,7 +68,7 @@
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-sm" data-item_id="{{ item.item_id }}"
-                                                id="decrement-qty_{{ item.item_id }}">
+                                                id="decrement-qty_{{ item.item_id }}" aria-label="decrease quantity">
                                                 <span class="icon">
                                                     <i class="fas fa-minus fa-sm"></i>
                                                 </span>
@@ -79,7 +79,7 @@
                                             data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-sm" data-item_id="{{ item.item_id }}"
-                                                id="increment-qty_{{ item.item_id }}">
+                                                id="increment-qty_{{ item.item_id }}" aria-label="increase quantity">
                                                 <span class="icon">
                                                     <i class="fas fa-plus fa-sm"></i>
                                                 </span>
@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-md-1 col-lg-2">
                     <a class="remove-item btn btn-sm btn-danger" id="remove_{{ item.item_id }}"><i
-                            class="fas fa-trash-alt"></i></a>
+                            class="fas fa-trash-alt" aria-label="delete item"></i></a>
                 </div>
                 <div class="col-md-2">
                     <p class="my-0"><strong>${{ item.product_subtotal }}</strong></p>

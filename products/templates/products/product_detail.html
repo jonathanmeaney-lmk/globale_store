@@ -17,9 +17,13 @@
                 <p class="headings"><i class="fas fa-lg fa-chevron-left mr-2"></i> 
                 <a class="headings return-links" href="{% url 'products' %}">All Beers</a> 
                 <span class="mx-1">|</span> 
-                <a class="headings return-links" href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a> 
+                <a class="headings return-links" href="{% url 'products' %}?category={{ product.category.name }}">
+                    {{ product.category.friendly_name }}
+                </a> 
                 <span class="mx-1">|</span> 
-                <a class="headings return-links" href="{% url 'products' %}?country={{ product.country.name }}">{{ product.country.friendly_name }}</a>
+                <a class="headings return-links" href="{% url 'products' %}?country={{ product.country.name }}">
+                    {{ product.country.friendly_name }}
+                </a>
                 </p>
             </div>
         </div>
@@ -47,7 +51,9 @@
                     <hr class="my-1">
                     <p class="body-text mb-2 product-description">{{ product.description }}</p>
                     {% if average_rating %}
-                        <p class="text-muted body-text product-description mb-0"><em>Rating: {{ average_rating|floatformat:2 }}</em> <i class="fas fa-star icon text-warning p-0"></i></p> 
+                        <p class="text-muted body-text product-description mb-0">
+                            <em>Rating: {{ average_rating|floatformat:2 }}</em> <i class="fas fa-star icon text-warning p-0"></i>
+                        </p> 
                     {% endif %}
                     {% if request.user.is_superuser %}
                         <small>
@@ -67,7 +73,7 @@
                                             <strong class="headings mt-1">Quantity:</strong>
                                             <div class="input-group-prepend">
                                                 <button class="decrement-qty btn" data-item_id="{{ product.id }}"
-                                                    id="decrement-qty_{{ product.id }}">
+                                                    id="decrement-qty_{{ product.id }}" aria-label="increase quantity">
                                                     <span class="icon">
                                                         <i class="fas fa-minus"></i>
                                                     </span>
@@ -78,7 +84,7 @@
                                                 data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                             <div class="input-group-append">
                                                 <button class="increment-qty btn" data-item_id="{{ product.id }}"
-                                                    id="increment-qty_{{ product.id }}">
+                                                    id="increment-qty_{{ product.id }}" aria-label="increase quantity">
                                                     <span class="icon">
                                                         <i class="fas fa-plus"></i>
                                                     </span>
@@ -137,7 +143,7 @@
                             </div>
                            <hr> 
                         {% else %}
-                            <p>Please <a href="{% url 'account_login' %}">Log In</a> or <a href="{% url 'account_signup' %}">Register</a> to leave a review.</p>
+                            <p>Please <a href="{% url 'account_login' %}">Sign In</a> or <a href="{% url 'account_signup' %}">Register</a> to leave a review.</p>
                             <hr> 
                         {% endif %}
                         {% if reviews %}
