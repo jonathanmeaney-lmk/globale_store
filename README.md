@@ -407,3 +407,30 @@ Contents:
  - Functionality Testing
  - Code Validation
 
+<hr>
+
+## **CREDITS**
+
+- The homepage image has come from ShutterStock and is by Sergey Peterman. [See original image here](https://www.shutterstock.com/es/image-photo/global-beer-concept-world-map-silhouette-1408420616). (Developer has rights to the image through ShutterStock subsciption).
+
+- The beer description texts have come from the websites of the brewers of the beer. 
+
+### **Code:**
+
+- The navbar, buttons, toggle, responsive design, form styling, and some other elements were created using [Bootstrap 4](https://getbootstrap.com/).
+- Much of the functionality code is based on the Code Institute Boutique Ado walkthrough project.
+- Some of the code used to set up the Product Reviews model was taken from this YouTube video lesson: [Product reviews - How to build an Ecommerce website using Django 3 and Vue.js - Part 20](https://www.youtube.com/watch?v=Y5vvGQyHtpM)
+- The Python code used to generate a random 10-digit number to create the SKU is based on code from this Stack Overflow post, [see here](https://stackoverflow.com/questions/2673385/how-to-generate-random-number-with-the-specific-length-in-python).
+
+<hr>
+
+## **PLANNED FEATURES FOR FUTURE VERSIONS**
+
+Due to time constraints, not all desired features have been included in this MVP version of the project. Here are some considerations for future versions:
+
+   - Adding many more products from several more countries and several new types to give the shopper a fuller experience.
+   - Falling in line with 'Beers of the World' nature of the website, the developers would kike to include an interactive world map, possibly created using the Folium and Leaflet for Python.
+
+      - This map would contain 'Pins' for each beer (containing a small image of the beer) and would be located where the beer is brewed. Clicking on the pin, would bring up info on the beer or direct the user to the product detail page. This would a cool, fun feature to have but was not viable in time allowed for this MVP version.
+
+   - The developers also plan to improve the Product Management interface, but that was not considered under the time constraints for this MVP version. 
