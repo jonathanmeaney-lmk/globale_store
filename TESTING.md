@@ -473,6 +473,105 @@
 - Some recognized downfalls:
   - The developer is aware that to improve UX, the delete functionality could be improved by giving users a chance to confirm the delete after clicking 'Delete' the first time. However due to time constraints, this functionality has not been included in the MVP version and will be added in later versions.
 
+### **Registration**
+
+- All Registration links working correctly:
+  - The 'Register Link' in the navbar Profile dropdown menu only appears for non-logged in users, and correctly directs users to the Sign Up page.
+  - The 'Register Link' in the reviews section of the Product Details page only appears for non-logged in users, and correctly directs users to the Sign Up page.
+  - The 'Register Link' in the Checkout page only appears for non-logged in users, and correctly directs users to the Sign Up page.
+  - The 'Register Link' in the Sign In page correctly directs users to the Sign Up page. 
+
+  <img src="readme-screenshots/function-test-47.jpg"  alt="function-test-47" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- On the Sign Up page, once the user fills in the fields correctly and clicks 'Sign Up':
+  - They are redirected to the Verify Email page; a message appears to inform them a confirmation email has been sent. 
+
+    <img src="readme-screenshots/function-test-48.jpg"  alt="function-test-48" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - Email is correctly sent to the email address provided in the registration form. 
+
+    <img src="readme-screenshots/function-test-49.jpg"  alt="function-test-49" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - Clicking on the link directs users to the Confirm Email Address page. When the user clicks Confirm:
+    - They are redirected to Sign In page,  a  message appears to tell them that their email has been confirmed. 
+
+      <img src="readme-screenshots/function-test-50.jpg"  alt="function-test-50" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+    - After entering their username/email and password provided in the registration form and clicking 'Sign In', they are successfully logged in and a message appears to inform them that they have have signed in succesfully. 
+
+      <img src="readme-screenshots/function-test-51.jpg"  alt="function-test-51" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- Handling Registration form errors: 
+  - If a user tries to submit the form without completing a field, the user will not be able to proceed and they are prompted to complete the necessary field.
+
+    <img src="readme-screenshots/function-test-52.jpg"  alt="function-test-52" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - If the user tries to submit the form, and the email and confirm email fields don't match, the user will not be able to proceed and will be prompted to fix the error. 
+
+    <img src="readme-screenshots/function-test-53.jpg"  alt="function-test-52" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - If the user tries to submit the form, and the password and confirm password fields don't match, the user will not be able to proceed and will be prompted to fix the error. 
+  
+    <img src="readme-screenshots/function-test-54.jpg"  alt="function-test-54" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - If the user tries to submit the form, having choosen an email or username that already exists for another registered user, the user will not be able to proceed and will be prompted to choose another email or username. 
+
+    <img src="readme-screenshots/function-test-55.jpg"  alt="function-test-55" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+### **Sign In**
+
+- All Sign In links working correctly:
+  - The 'Sign In' link in the navbar Profile dropdown menu only appears for non-logged in users, and correctly directs users to the Sign In page.
+  - The 'Sign In' link in the reviews section of the Product Details page only appears for non-logged in users, and correctly directs users to the Sign In page.
+  - The 'Sign In' link in the Checkout page only appears for non-logged in users, and correctly directs users to the Sign In page. 
+  - The 'Sign In' link  in the Register page correctly directs users to the Sign In page. 
+- On the Sign Up page, once the user fills in the fields correctly and clicks 'Sign In'
+  - A message appears to tell the user that they have signed in successfully. 
+
+    <img src="readme-screenshots/function-test-56.jpg"  alt="function-test-56" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+- Handling Sign In form errors: 
+  - If a user tries to submit the form without completing a field, the user will not be able to proceed and they are prompted to complete the necessary field. 
+
+    <img src="readme-screenshots/function-test-57.jpg"  alt="function-test-57" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
+
+  - If the user tries to submit the form, having typed an incorrect email and/or password, they will not be able to proceed and are prompted to fix the error.  
+
+    <img src="readme-screenshots/function-test-58.jpg"  alt="function-test-58" style="border-color:lightgrey;border-style:solid;border-width:1px">
+
+- Forgot Password:
+  - Clicking the 'Forgot Password' link, directs the user to the Password Reset page. 
+  - Clicking 'Back to Login' link on the Password Reset Page correctly redirects users to the Sign In page.
+  - On the Password Reset page, once the user enters their registered email and clicks 'Reset Password' :
+    - They are informed they have received an email in the Password Reset page.
+    - An email is sent to their registered email address with a link that allows them to reset their password. 
+
+    <img src="readme-screenshots/function-test-59.jpg"  alt="function-test-59" style="border-color:lightgrey;border-style:solid;border-width:1px">
+
+  - Clicking on the link directs users to the Change Password page. Once they fill in their new password twice correctly and click 'Change Psssword', a message appears to inform them that their password has been successfully changed.
+  - The user can successfully log in with this new password. 
+- Handling Reset Password form errors:
+  - On the Password Reset page, if the user enters an email that is not assigned to a user account, they will not be able to proceed and will be prompted to fix the error. 
+  
+    <img src="readme-screenshots/function-test-60.jpg"  alt="function-test-60" style="border-color:lightgrey;border-style:solid;border-width:1px">
+
+  - On the Change Password page, if the user tries to submit the form, and the password and confirm password fields don't match, the user will not be able to proceed and will be prompted to fix the error.
+
+    <img src="readme-screenshots/function-test-61.jpg"  alt="function-test-61" style="border-color:lightgrey;border-style:solid;border-width:1px">
+
+  - If a user clicks on an old reset password link after having previously used this link to reset their password, they are redirected to the Bad Token page, which informs that the "password reset link was invalid". Here the new password reset link correctly and directs them to the Reset Password page. 
+
+    <img src="readme-screenshots/function-test-62.jpg"  alt="function-test-62" style="border-color:lightgrey;border-style:solid;border-width:1px">
+
+
+### **Log Out**
+
+- The 'Sign Out' link in the navbar Profile dropdown menu only appears for logged in users, and correctly directs users to the Sign Out page.
+- On the Sign Out page, clicking 'Cancel' will redirect the user to the home page and they will remain logged in.
+- Clicking 'Sign Out', the user will be signed out of the website, the are redirected to the homepage and a message appears to tell them that they have successfully signed out. 
+
+  <img src="readme-screenshots/function-test-63.jpg"  alt="function-test-63" style="border-color:lightgrey;border-style:solid;border-width:1px">
+
 <hr>
 
 ## **VALIDATION**
