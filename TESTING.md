@@ -123,7 +123,7 @@
 
 - Admin users can click on the 'Edit' link on the Products page or Product Detail page. This will direct them to the 'Edit a Product' page. This link only appears for admin users.
 - On the Edit a Product page, users can make any neccesary changes to the prefilled form. The form is prefilled with the product's existing details. 
-- Having updated the form correctly and clicked 'Submit', the the changes will be applied to the product on the database.
+- Having updated the form correctly and clicked 'Submit', the changes will be applied to the product on the database.
 - Users are then re-directed to the product detail page where they can see the changes applied. A message will appear to say that the product has been updated successfully. 
 
 **3. I want to delete an existing product on the store.**
@@ -195,7 +195,7 @@
 
 ### **Product Detail Page**
 
-- Clicking on a product from the Product page, directs users to the correct Product Detail page, which renders the product image, all relevant product information (name, brewer, description, price, size, ABV), a quantity input and 'Add to Cart' button, as well as a reviews form (if user is logged in), and product reviews and average(if any).
+- Clicking on a product from the Product page, directs users to the correct Product Detail page, which renders the product image, all relevant product information (name, brewer, description, price, size, ABV), a quantity input and 'Add to Cart' button, as well as a reviews form (if user is logged in), and product reviews and average (if any).
 - Above the product image, three 'back' links appear allowing users to return to the All Beers section, or the relevant category or country. When clicked, each link returns user to the correct All Beers, category or country page. 
 
 <img src="readme-screenshots/function-test-7.jpg"  alt="function-test-7" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
@@ -215,7 +215,7 @@
 - Adding product to shopping cart:
   - Quantity Inputs:
     - 'Plus' button increases the quantity by one with each click. 
-    - 'Plus' button is disabled when user reaches 99
+    - 'Plus' button is disabled when user reaches 99.
     - 'Minus' button decreases the quantity by one with each click. 
     - 'Minus' button is disabled when quantity is at 1. As such, 'Minus' button is initially disabled as the default quantity is 1. Once user clicks the 'Plus' button once to reach 2, the 'Minus' button is enabled.
 
@@ -269,7 +269,7 @@
   - Cash totals update correctly after update.
 - Delete product:
   - When hovered over the delete button changes color.
-  - When clicked, the product is deleted from cart and a message appears to tell the user the quantity has been deleted successfully.
+  - When clicked, the product is deleted from cart and a message appears to tell the user the product has been deleted successfully.
 
     <img src="readme-screenshots/function-test-16.jpg"  alt="function-test-16" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
@@ -363,7 +363,7 @@
 
 ### **Order History Page**
 
-- Clicking on the Orders link from the Profile dropdown menu correctly directs authenticated users to the Order History page
+- Clicking on the Orders link from the Profile dropdown menu correctly directs authenticated users to the Order History page.
 
 - A list of the user's previous orders is generated correctly. Clicking the 'See Details' shows the full order details. 
 
@@ -445,7 +445,7 @@
 - When a superuser clicks on the Edit link in the product card on the Product page, or in the Products Details page, they are correctly directed to the Edit Product page.
 - The Edit Product form appears, with all the forms fields correctly pre-filled with the product's current details. 
 - Having edited the desired field(s) and clicked "Update Product":
-  - The product is updated to the database correctly.
+  - The product is updated on the database correctly.
   - The user is redirected to the Product Detail page for the updated product where they can sees the changes applied.
   - A message appears to tell them that the product has been added successfully. 
 
@@ -577,7 +577,7 @@
 ## **VALIDATION**
 
 
-W3C Markup Validator, W3C CSS Validator, PEP Validator and JSHint were used to validate the code in the project to ensure there were no errors.
+W3C Markup Validator, W3C CSS Validator, PEP8 Validator and JSHint were used to validate the code in the project to ensure there were no errors.
 
 - [W3C Markup Validator](https://validator.w3.org/)
 
@@ -609,10 +609,10 @@ W3C Markup Validator, W3C CSS Validator, PEP Validator and JSHint were used to v
   
   - On sporadic occasions, processed orders are duplicated in the system. The reason for this is that the webhook on Stripe creates the order before allowing the regular process to handle it, and then the regular process is completed. The reason for this is still unknown but solving the webhook issue was not possible within the time contraints for the MVP version.
   - It seems the webhooks for both development and deployment versions are linked, as a webhook is sent to both versions regardless of which version the order was processed in. 
-  - Having consulted with tutors and my colleagues on Slack, I tried several solutions, such as increasing the while loop attempt in the webhook handler and disabling the webhook endpoint for the development version of the project. However the problem still persists, but only happend very occasionally.
+  - Having consulted with tutors and my colleagues on Slack, I tried several solutions, such as increasing the while loop attempt in the webhook handler and disabling the webhook endpoint for the development version of the project. However the problem still persists, but only happens occasionally.
   - Temporary solution for this MVP version: 
-    - In order to improve UX, I have disabled the webhook posting the user's profile to the order form data when the webhook handles the order. This means the order created by the webhook will not appear in the user's order history, which would be extremely poor UX. Only the order that was created by the regular process will be added to the user's order history, and not the order created by the webhook.
-    - As such, the duplicated orders will only appear in the Django admin database and the admin user can easily spot them as they will have the exact same amount and same timestamp. 
+    - In order to improve UX, I have disabled the webhook posting the user's profile to the order form data when the webhook handles the order. This means the duplicated order created by the webhook will not appear in the user's order history, which would be extremely poor UX. Only the order that was created by the regular process will be added to the user's order history.
+    - As such, the duplicated orders will only appear in the Django admin database and the admin user can easily spot them as they will have the exact same details and same timestamp. 
     - The only downfall of having disabled the webhook posting the user's profile to the order form data when the webhook handles the order:
       - In the rare case that the webhook handler solely creates the order (for example, when a user closes the checkout page before the order process is completed), it means that this order will not be posted to the logged in user's order history.
       - Although the user will still receive the confirmation email, so they will not be left in doubt as to whether the order has been completed. 

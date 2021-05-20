@@ -2,7 +2,7 @@
 
 [View live project here](https://globale-beerstore-jm.herokuapp.com/)
 
-**The 'one-stop shop' for finely crafted beers from around the world**
+**The 'one-stop shop' for finely crafted beers from around the world.**
 
 <h2 align="center"><img src="readme-screenshots/intro-pic.jpg" style="max-height:400px;"></h2>
 
@@ -17,7 +17,7 @@ In response to these market changes, the GlobALE digital beer store has been est
 **Features:**
 
 - Browse beers by country, category or key words
-- Choose beers, add to shopping cart and pay using secure Stripe payments system
+- Choose beers, add to shopping cart and pay using a secure Stripe payments system
 - Create user profile to store delivery information, past orders, and file order issues
 - Leave reviews and ratings on beers for the GlobALE community
 - Store owners: add beers, edit and delete beers and deal with customer order issues
@@ -30,15 +30,13 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 **General searching and browsing**
 
-1. I want to easily understand the main purpose of the website and quickly understand its structure.
+1. I want to generally browse all of the products on the GlobALE store
 
-2. I want to generally browse all of the products on the GlobALE store
+2. I want to search products available on the GlobaALE store by category.
 
-3. I want to search products available on the GlobaALE store by category.
+3. I want to find a particular product I am interested in by name or description.
 
-4. I want to find a particular product I am interested in by name or description.
-
-5. I want to view more detailed information on a particular product I am interested in purchasing.
+4. I want to view more detailed information on a particular product I am interested in purchasing.
 
 **Log In, Registration and User Profiles**
 
@@ -52,7 +50,7 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 5. As a signed in user, I want to log out of the GlobALE store. 
 
-6. As a signed in user, I have forgotten my password and would like to reset it in order to sign in.
+6. As a registered user, I have forgotten my password and would like to reset it in order to sign in.
 
 **Storing items for purchase and making purchases**
 
@@ -111,7 +109,7 @@ In response to these market changes, the GlobALE digital beer store has been est
 - [GitHub](https://github.com/): GitHub is used to store the projects code after being pushed from Git.
 - [Heroku](https://www.heroku.com/): Heroku is used to deploy the project to the web and is linked to the GitHub repository (see more in Deployment section)
 - [Stripe](https://stripe.com/): Stripe is used for the secure processing of payments.
-- [Amazon Web Services](https://www.mongodb.com/): Amazon Web Services is used to store static files and media files for the deployed project
+- [Amazon Web Services](https://www.mongodb.com/): Amazon Web Services is used to store static files and media files for the deployed project.
 
 
 <hr>
@@ -120,7 +118,7 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 ### **Colors**
 
-   - The brand colors, navy blue, white and orange have been user across the sight, while light greys have been used for muted texts and dividers.
+   - The brand colors, navy blue, white and orange have been used across the sight, while light greys have been used for muted texts and dividers.
 
       <img src="readme-screenshots/color-scheme.jpg"  alt="colorscheme" style="border-color:lightgrey;border-style:solid;border-width:1px; max-height:300px">
 
@@ -132,23 +130,23 @@ In response to these market changes, the GlobALE digital beer store has been est
  - ['Antonio'](https://fonts.google.com/specimen/Antonio) and ['Noto Sans'](https://fonts.google.com/specimen/Noto+Sans) have both come from Google Fonts.
 
 ### **Imagery**
-- The main homepage image, featruing a silhouette of he map of the world on a head of beer, has been chosen to represent 'Beers of the World'
+- The main homepage image, featruing a silhouette of the map of the world on a head of beer, has been chosen to represent 'Beers of the World' nature of the site.
 
 - Credit: This image has come from ShutterStock and is by Sergey Peterman. [See original image here](https://www.shutterstock.com/es/image-photo/global-beer-concept-world-map-silhouette-1408420616). (Developer has rights to the image through ShutterStock subsciption) 
 
 - The rest of the imagery on the site pertains to product photos.
 
-- All images were pre-cropped or resized using an online image editro, [BeFunky.com](https://www.befunky.com/) 
+- All images were pre-cropped or resized using an online image editor, [BeFunky.com](https://www.befunky.com/) 
 
 ### **Icons**
 
 - A series of icons have been used throughout to to improve user experience.
 
-- All icons have come from [Font Awesome](https://fontawesome.com/)
+- All icons have come from [Font Awesome](https://fontawesome.com/).
 
 ### **User Interface Design**
  - The intial wireframes for the project were created using [Balsamiq](https://balsamiq.com/) and can be viewed here: 
-   - [Medium-Large Screens](readme-screenshots/wireframes-large.pdf); 
+   - [Medium-Large Screens](readme-screenshots/wireframes-large.pdf)
    - [Mobile Screens](readme-screenshots/wireframes-mobile.pdf)
 
 
@@ -156,8 +154,9 @@ In response to these market changes, the GlobALE digital beer store has been est
 - A relational database model was used for the database design:
    - The database used in development is sqlite3 (as provided by Django).
    - The database used in production is PostGres (as provided by Heroku). More info on setting up the Postgres database can be found the Deployment section below.
+
    
-   <img src="readme-screenshots/database-schema.jpg"  alt="database schema" style="border-color:lightgrey;border-style:solid;border-width:1px">
+      <img src="readme-screenshots/database-schema.jpg"  alt="database schema" style="border-color:lightgrey;border-style:solid;border-width:1px">
 
 
 - Database Structure: The database is divided under three main models: Product, User and Order
@@ -169,7 +168,7 @@ In response to these market changes, the GlobALE digital beer store has been est
   - Order related models and relationships:
     - Order-Order Line Item (many-to-one): an Order can be related to many Order Line Items, but an Order Line Item can only be related to one Order. 
     - Order-Order Issue (many-to-one): an Order can be related to many Order Issues, but an Order Issue can only be related to one Order. 
-    - Order-User Profile (one-to-many): an Order can be related to one User Profile, but a User Profile can be related to Orders.
+    - Order-User Profile (one-to-many): an Order can be related to one User Profile, but a User Profile can be related to many Orders.
   - User related models and relationships:
     - User-User Profile (one-to-one): a User can be related to one User Profile; while a User Profile can be related to one User.
     - User-Order (many-to-one): a User can be related to many Orders, but an Order can only be related to one User. 
@@ -194,7 +193,7 @@ In response to these market changes, the GlobALE digital beer store has been est
    <img src="readme-screenshots/requirements.jpg"  alt="database schema" style="border-color:lightgrey;border-style:solid;border-width:1px">
 
 -   The project was regularly commited using the Git command line interface on Gitpod.
--   After each commit, the project was pushed to Github, and then later pushed to Heruko for deployment (see more inDeployment section)
+-   After each commit, the project was pushed to Github, and then later pushed to Heruko for deployment (see more in Deployment section)
 
 <hr>
 
@@ -325,17 +324,17 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 1.  In the AWS services menu, open IAM (Identity and Access Management)
 2. To create a group:
-   - Go to 'User groups' in the IAM dashboard and click 'Create Group' 
-   - Choose a group name (e.g. manage-globale-store)
+   - Go to 'User groups' in the IAM dashboard and click 'Create Group'.
+   - Choose a group name (e.g. manage-globale-store).
    - Scroll down and click 'Create Group'.
 3. To create a policy: 
-   - Go to 'Policies' in the IAM Dashboard and click 'Create Policy' 
+   - Go to 'Policies' in the IAM Dashboard and click 'Create Policy'.
    - In the 'Create Policy' section, go to the 'JSON' tab and then click 'Import managed policy'. Here search for 'S3', choose 'AmazonS3FullAccess' and press 'Import' to generate the JSON object. 
    - For the Resource key in the generated JSON object: copy and paste the bucket ARN (go back to S3-Bucket Policy to get the ARN) twice into a list, with the second ARN value containing ***/**** at the end. This is to allow actions in the bucket itself and everything in it. See pic below: 
 
    <img src="readme-screenshots/deployment-11.jpg"  alt="deployment-11" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
-   - Click 'Next-tags' and then click 'Next-review'. Add a name (e.g. globale-beerstore-jm-policy) and a description (e.g. Access to S3 bucket for globale static files), and then click 'Create Policy'
+   - Click 'Next-tags' and then click 'Next-review'. Add a name (e.g. globale-beerstore-jm-policy) and a description (e.g. Access to S3 bucket for globale static files), and then click 'Create Policy'.
 4. To attach the policy to the group: 
    - Go to 'User groups' in the IAM dashboard and click on the relevant group. 
    - Go to the 'Permissions' tab and click 'Add Permissions' > 'Attach Policy'. Select the newly created policy and click 'Add Permissions'.
@@ -359,7 +358,7 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 <img src="readme-screenshots/deployment-12.jpg"  alt="deployment-12" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
-5. Go to Heroku app and add the AWS access keys to the Config Variable in the Settings tab. (Both these keys come from the .csv file downloaded in step 5 above in 'Creating a group and user to allow access to the bucket using IAM')
+5. Go to Heroku app and add the AWS access keys to the Config Variable in the Settings tab. (Both these keys come from the .csv file downloaded in step 5 above in 'Creating a group and user to allow access to the bucket using IAM').
 
 <img src="readme-screenshots/deployment-13.jpg"  alt="deployment-13" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
@@ -379,8 +378,8 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 <img src="readme-screenshots/deployment-16.jpg"  alt="deployment-16" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
 
-3. At this point, commit and push these changes toGithub, which will automatically deploy thesechanges to Heroku.
-4. Static files will now be sent to the AWS S3bucket and accessible to Heroku.
+3. At this point, commit and push these changes to Github, which will automatically deploy these changes to Heroku.
+4. Static files will now be sent to the AWS S3 bucket and accessible to Heroku.
 5. Back in settings.py, add the following code (which will tell the browser that it's okay to cache static files for a long time in order to improve user performance):
 
 <img src="readme-screenshots/deployment-17.jpg"  alt="deployment-17" style="border-color:lightgrey;border-style:solid;border-width:1px"> 
@@ -391,7 +390,7 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 1. Go to back to the S3 bucket for the project and in it create a new folder called 'media'
 2. Inside the media folder, click 'Upload' and then 'Add Files'. Add the relevant images from the project's media folder (download from Github repo) and click 'Open'.
-3. Before clicking 'Upload', select 'Grant Public Read Access' in the 'Predefined ACLs' section. Then click 'Upload'
+3. Before clicking 'Upload', select 'Grant Public Read Access' in the 'Predefined ACLs' section. Then click 'Upload'.
 
 ### <u>**Final steps**</u>
 
@@ -416,7 +415,7 @@ In response to these market changes, the GlobALE digital beer store has been est
 
 ## **TESTING**
    
-[Click here to find to the Testing Document](TESTING.md).
+[Click here to go to the Testing Document](TESTING.md).
 
 Contents:
 
@@ -447,9 +446,11 @@ Contents:
 Due to time constraints, not all desired features have been included in this MVP version of the project. Here are some considerations for future versions:
 
    - Adding many more products from several more countries and several new types to give the shopper a fuller experience.
-   - Falling in line with 'Beers of the World' nature of the website, the developers would kike to include an interactive world map, possibly created using the Folium and Leaflet for Python.
+   - Adding tasting packs and gift cards as product options (as seen in the wireframes).
+   - Adding special offers and new arrivals section (as seen in the wireframes).
+   - Falling in line with the 'Beers of the World' nature of the website, the developers would like to include an interactive world map, possibly created using the Folium and Leaflet for Python.
 
-      - This map would contain 'Pins' for each beer (containing a small image of the beer) and would be located where the beer is brewed. Clicking on the pin, would bring up info on the beer or direct the user to the product detail page. This would a cool, fun feature to have but was not viable in time allowed for this MVP version.
+      - This map would contain 'Pins' for each beer (containing a small image of the beer) and would be located where the beer is brewed. Clicking on the pin, would bring up info on the beer or direct the user to the product detail page. This would be a cool, fun feature to have but was not viable in the time allowed for this MVP version.
 
    - The developers also plan to improve the Product Management interface, but that was not considered essential under the time constraints for this MVP version. 
 
