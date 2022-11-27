@@ -1,1 +1,0 @@
-web: gunicorn globale_store.wsgi:application
