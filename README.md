@@ -1,6 +1,6 @@
 <h1 align="center"><strong>GlobALE Beer Store</strong></h1>
 
-[View live project here](https://globale-beerstore-jm.herokuapp.com/)
+[View live project here](https://globale-store.onrender.com/)
 
 **The 'one-stop shop' for finely crafted beers from around the world.**
 
